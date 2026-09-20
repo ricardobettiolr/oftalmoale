@@ -11,7 +11,7 @@ export function SiteFooter() {
             <p className="mt-1">
               Especialista en segmento anterior · Cirugía de catarata y córnea
             </p>
-            <p className="mt-2 text-white/90">Más de 2800 cirugías realizadas</p>
+            <p className="mt-2 text-white/90">Más de 2,800 cirugías realizadas</p>
             <a
               href="mailto:oftalmoale@gmail.com"
               className="mt-3 inline-block text-white underline-offset-4 hover:underline"
