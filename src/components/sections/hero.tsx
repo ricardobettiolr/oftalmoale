@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { BrandLogo } from "@/components/brand-logo";
 import Image from "next/image";
 
 export function Hero() {
@@ -23,18 +22,10 @@ export function Hero() {
 
       <div className="section-pad relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
         <div className="max-w-2xl">
-          <div className="relative mb-6 inline-block bg-transparent opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards]">
-            {/* Soft mist halo so the lockup reads clearly over dark photo — not a black plate */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[140%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(247,250,251,0.72)_0%,rgba(247,250,251,0.28)_45%,transparent_72%)]"
-            />
-            <BrandLogo priority className="relative h-14 sm:h-16 md:h-[4.5rem]" />
-          </div>
-          <h1 className="sr-only">
-            Oftalmoale — Dra. María Alejandra Rojas, oftalmóloga
+          <h1 className="font-display text-4xl leading-[1.05] tracking-tight text-white opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards] sm:text-5xl md:text-6xl lg:text-7xl">
+            María Alejandra Rojas
           </h1>
-          <p className="max-w-xl text-balance text-lg font-normal leading-relaxed text-white/90 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards] md:text-xl">
+          <p className="mt-5 max-w-xl text-balance text-lg font-normal leading-relaxed text-white/90 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.15s_forwards] md:text-xl">
             Cuidado oftalmológico preciso — especialista en segmento anterior,
             cirugía de catarata y córnea.
           </p>
