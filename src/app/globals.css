@@ -2,15 +2,16 @@
 @import "tw-animate-css";
 
 :root {
-  --ink: #0b2740;
-  --mist: #eef3f6;
-  --paper: #f7fafb;
-  --teal: #1a8f8a;
-  --teal-deep: #0f6b68;
-  --sky: #c9dde8;
-  --border: #d3e0e8;
-  --muted: #5f7383;
-  --ring: #1a8f8a;
+  /* Clinical blue system — aligned with logo blues */
+  --ink: #0a2348;
+  --mist: #e6f0f9;
+  --paper: #f4f8fc;
+  --teal: #1769c5; /* accent blue (token name kept for compatibility) */
+  --teal-deep: #0e4d94;
+  --sky: #b7d3ee;
+  --border: #c2d6ea;
+  --muted: #4a6888;
+  --ring: #1769c5;
 }
 
 @theme inline {
@@ -20,7 +21,7 @@
   --color-mist: var(--mist);
   --color-paper: var(--paper);
   --color-primary: var(--ink);
-  --color-primary-foreground: #f7fafb;
+  --color-primary-foreground: #f4f8fc;
   --color-accent: var(--teal);
   --color-accent-foreground: #ffffff;
   --color-border: var(--border);
@@ -71,9 +72,9 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(201, 221, 232, 0.7), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 88% 8%, rgba(26, 143, 138, 0.12), transparent 50%),
-    linear-gradient(180deg, #f4f8fa 0%, var(--paper) 40%, #eef4f7 100%);
+    radial-gradient(ellipse 90% 55% at 12% -10%, rgba(183, 211, 238, 0.75), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 88% 8%, rgba(23, 105, 197, 0.12), transparent 50%),
+    linear-gradient(180deg, #eaf2fa 0%, var(--paper) 42%, #e8f1f8 100%);
   color: var(--ink);
   font-family: var(--font-sans), ui-sans-serif, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -81,7 +82,7 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--teal) 35%, white);
+  background: color-mix(in srgb, var(--teal) 32%, white);
   color: var(--ink);
 }
 
@@ -93,19 +94,19 @@ body {
   padding-inline: clamp(1.25rem, 4vw, 3.5rem);
 }
 
-/* Alternating clinical surfaces — subtle atmosphere, not cards */
+/* Alternating clinical surfaces — blue atmosphere, not cards */
 .section-surface {
   position: relative;
-  background: color-mix(in srgb, var(--paper) 92%, white);
+  background: color-mix(in srgb, var(--paper) 88%, #e8f1fa);
 }
 
 .section-surface-alt {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(ellipse 80% 60% at 8% 12%, rgba(201, 221, 232, 0.45), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 92% 88%, rgba(26, 143, 138, 0.08), transparent 50%),
-    linear-gradient(180deg, #e8f0f4 0%, var(--mist) 48%, #eef4f7 100%);
+    radial-gradient(ellipse 80% 60% at 8% 12%, rgba(183, 211, 238, 0.55), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 92% 88%, rgba(23, 105, 197, 0.1), transparent 50%),
+    linear-gradient(180deg, #dceaf6 0%, var(--mist) 48%, #e8f2fa 100%);
 }
 
 .section-surface-alt::before {
@@ -114,8 +115,8 @@ body {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.28;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.12 0 0 0 0 0.16 0 0 0 0.55 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  opacity: 0.26;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.04 0 0 0 0 0.14 0 0 0 0 0.28 0 0 0 0.5 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
   mix-blend-mode: multiply;
 }
 
