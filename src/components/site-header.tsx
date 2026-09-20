@@ -35,11 +35,17 @@ export function SiteHeader() {
       <div className="section-pad mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 md:h-20">
         <a
           href="#inicio"
-          className="inline-flex shrink-0 bg-transparent"
+          className="relative inline-flex shrink-0 bg-transparent"
           aria-label="Oftalmoale — Dra. María Alejandra Rojas"
           style={{ backgroundColor: "transparent" }}
         >
-          <BrandLogo priority className="h-8 md:h-10" />
+          {!scrolled && (
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[160%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(247,250,251,0.55)_0%,transparent_70%)]"
+            />
+          )}
+          <BrandLogo priority className="relative h-8 md:h-10" />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">
