@@ -22,14 +22,15 @@ export function Hero() {
 
       <div className="section-pad relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
         <div className="max-w-2xl">
-          <div className="mb-6 inline-flex rounded-sm bg-black p-2 shadow-[0_12px_40px_rgba(0,0,0,0.35)] ring-1 ring-white/10 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards] sm:p-3">
+          <div className="mb-6 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards]">
             <Image
-              src="/assets/oftalmoale-logo.png"
+              src="/assets/logo.png"
               alt="Oftalmoale — Dra. María Alejandra Rojas"
               width={520}
               height={134}
               priority
-              className="h-14 w-auto sm:h-16 md:h-20"
+              unoptimized
+              className="h-14 w-auto bg-transparent drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:h-16 md:h-20"
             />
           </div>
           <h1 className="sr-only">

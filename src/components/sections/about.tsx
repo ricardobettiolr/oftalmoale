@@ -25,6 +25,9 @@ export function About() {
             <h2 className="font-display text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
               Dra. María Alejandra Rojas
             </h2>
+            <p className="mt-5 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
+              Más de 500 cirugías realizadas
+            </p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
               En Oftalmoale acompaño a cada paciente con evaluaciones claras,
               tecnología de precisión y un plan de tratamiento pensado para

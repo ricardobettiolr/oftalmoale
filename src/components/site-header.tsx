@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 const links = [
   { href: "#nosotros", label: "Nosotros" },
   { href: "#servicios", label: "Servicios" },
+  { href: "#galaxy", label: "GALAXY" },
   { href: "#consultorio", label: "Consultorio" },
   { href: "#cita", label: "Cita" },
 ];
@@ -34,20 +35,21 @@ export function SiteHeader() {
       <div className="section-pad mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 md:h-20">
         <a
           href="#inicio"
-          className="inline-flex shrink-0 rounded-sm bg-black px-2 py-1.5 shadow-sm ring-1 ring-white/10"
+          className="inline-flex shrink-0 bg-transparent"
           aria-label="Oftalmoale — Dra. María Alejandra Rojas"
         >
           <Image
-            src="/assets/oftalmoale-logo.png"
+            src="/assets/logo.png"
             alt="Oftalmoale — Dra. María Alejandra Rojas"
             width={280}
             height={72}
             priority
-            className="h-8 w-auto md:h-10"
+            unoptimized
+            className="h-8 w-auto bg-transparent md:h-10"
           />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {links.map((link) => (
             <a
               key={link.href}
