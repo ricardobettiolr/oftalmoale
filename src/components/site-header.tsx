@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/brand-logo";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -37,16 +37,9 @@ export function SiteHeader() {
           href="#inicio"
           className="inline-flex shrink-0 bg-transparent"
           aria-label="Oftalmoale — Dra. María Alejandra Rojas"
+          style={{ backgroundColor: "transparent" }}
         >
-          <Image
-            src="/assets/logo.png"
-            alt="Oftalmoale — Dra. María Alejandra Rojas"
-            width={280}
-            height={72}
-            priority
-            unoptimized
-            className="h-8 w-auto bg-transparent md:h-10"
-          />
+          <BrandLogo priority className="h-8 md:h-10" />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">

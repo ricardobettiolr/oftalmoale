@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { BrandLogo } from "@/components/brand-logo";
+import Image from "next/image";
 
 export function Hero() {
   return (
@@ -16,22 +17,14 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[center_30%] animate-[slow-zoom_18s_ease-out_forwards]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,28,44,0.82)_0%,rgba(8,28,44,0.5)_48%,rgba(8,28,44,0.28)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(26,143,138,0.16),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,28,44,0.72)_0%,rgba(8,28,44,0.42)_48%,rgba(8,28,44,0.22)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(26,143,138,0.14),transparent_55%)]" />
       </div>
 
       <div className="section-pad relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
         <div className="max-w-2xl">
-          <div className="mb-6 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards]">
-            <Image
-              src="/assets/logo.png"
-              alt="Oftalmoale — Dra. María Alejandra Rojas"
-              width={520}
-              height={134}
-              priority
-              unoptimized
-              className="h-14 w-auto bg-transparent drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)] sm:h-16 md:h-20"
-            />
+          <div className="mb-6 bg-transparent opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards]">
+            <BrandLogo priority className="h-14 sm:h-16 md:h-[4.5rem]" />
           </div>
           <h1 className="sr-only">
             Oftalmoale — Dra. María Alejandra Rojas, oftalmóloga

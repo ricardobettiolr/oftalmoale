@@ -1,17 +1,10 @@
-import Image from "next/image";
+import { BrandLogo } from "@/components/brand-logo";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-ink)] text-white">
       <div className="section-pad mx-auto flex max-w-6xl flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between">
-        <Image
-          src="/assets/logo.png"
-          alt="Oftalmoale"
-          width={280}
-          height={72}
-          unoptimized
-          className="h-10 w-auto bg-transparent"
-        />
+        <BrandLogo className="h-10" />
         <div className="max-w-md text-sm leading-relaxed text-white/75">
           <p>Dra. María Alejandra Rojas · Oftalmóloga</p>
           <p className="mt-1">
