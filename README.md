@@ -14,23 +14,30 @@ npm run dev -- --hostname 127.0.0.1 --port 43127
 
 Abra [http://127.0.0.1:43127](http://127.0.0.1:43127).
 
-Sin `RESEND_API_KEY`, el formulario de citas funciona en modo mock (registra la solicitud en la consola del servidor).
+Sin `GMAIL_USER` / `GMAIL_APP_PASSWORD`, el formulario de citas funciona en modo mock (registra la solicitud en la consola del servidor).
 
 ## Variables de entorno
 
 | Variable | Requerida | Descripción |
 |---|---|---|
 | `APPOINTMENT_TO_EMAIL` | Recomendada | Destino de las citas. Por defecto: `oftalmoale@gmail.com` |
-| `RESEND_API_KEY` | Para producción | API key de [Resend](https://resend.com) |
-| `APPOINTMENT_FROM_EMAIL` | Opcional | Remitente verificado en Resend (ej. `Oftalmoale <citas@su-dominio.com>`) |
+| `GMAIL_USER` | Producción | Cuenta Gmail que envía (p. ej. `oftalmoale@gmail.com`) |
+| `GMAIL_APP_PASSWORD` | Producción | Contraseña de aplicación de Google (no la contraseña normal) |
 
 Ejemplo `.env.local`:
 
 ```env
 APPOINTMENT_TO_EMAIL=oftalmoale@gmail.com
-RESEND_API_KEY=
-APPOINTMENT_FROM_EMAIL=
+GMAIL_USER=oftalmoale@gmail.com
+GMAIL_APP_PASSWORD=
 ```
+
+### Configurar Gmail (español)
+
+1. En la [cuenta de Google](https://myaccount.google.com/) → **Seguridad** → active **Verificación en 2 pasos**.
+2. En **Contraseñas de aplicaciones** → cree una para **Correo** / “Mail”.
+3. En Vercel, configure `GMAIL_USER`, `GMAIL_APP_PASSWORD` y `APPOINTMENT_TO_EMAIL`.
+4. Vuelva a desplegar el proyecto.
 
 ## Desplegar en Vercel
 
@@ -38,8 +45,8 @@ APPOINTMENT_FROM_EMAIL=
 2. Framework preset: **Next.js** (autodetectado). Root Directory: `.` (raíz del repo).
 3. En **Environment Variables**, agregue:
    - `APPOINTMENT_TO_EMAIL` = `oftalmoale@gmail.com`
-   - `RESEND_API_KEY` = su clave de Resend
-   - `APPOINTMENT_FROM_EMAIL` = (opcional) remitente verificado
+   - `GMAIL_USER` = `oftalmoale@gmail.com`
+   - `GMAIL_APP_PASSWORD` = la contraseña de aplicación de Google
 4. Deploy. Cada push a `main` vuelve a desplegar.
 
 ## Scripts

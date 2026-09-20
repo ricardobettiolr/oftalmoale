@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 type AppointmentBody = {
   name?: unknown;
@@ -47,14 +47,12 @@ export async function POST(request: Request) {
   }
 
   const to = process.env.APPOINTMENT_TO_EMAIL || "oftalmoale@gmail.com";
-  const from =
-    process.env.APPOINTMENT_FROM_EMAIL ||
-    "Oftalmoale <onboarding@resend.dev>";
-  const apiKey = process.env.RESEND_API_KEY;
+  const gmailUser = process.env.GMAIL_USER?.trim();
+  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD?.trim();
 
   const subject = `Nueva solicitud de cita — ${name}`;
   const text = [
-    "Nueva solicitud de cita desde oftalmoale.com",
+    "Nueva solicitud de cita desde el sitio Oftalmoale",
     "",
     `Nombre: ${name}`,
     `Correo: ${email}`,
@@ -65,44 +63,44 @@ export async function POST(request: Request) {
     reason,
   ].join("\n");
 
-  if (!apiKey) {
-    console.info("[appointments] Mock send (RESEND_API_KEY not set)", {
-      to,
-      from,
-      subject,
-      text,
-    });
+  if (!gmailUser || !gmailAppPassword) {
+    console.info(
+      "[appointments] Mock send (GMAIL_USER / GMAIL_APP_PASSWORD not set)",
+      { to, subject, text }
+    );
     return NextResponse.json({
       ok: true,
       mock: true,
-      message: "Solicitud registrada en modo desarrollo (sin RESEND_API_KEY).",
+      message:
+        "Solicitud registrada en modo desarrollo (sin credenciales de Gmail).",
     });
   }
 
   try {
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from,
-      to: [to],
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: gmailUser,
+        pass: gmailAppPassword,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"Oftalmoale" <${gmailUser}>`,
+      to,
       replyTo: email,
       subject,
       text,
     });
 
-    if (error) {
-      console.error("[appointments] Resend error", error);
-      return NextResponse.json(
-        { error: "No pudimos enviar el correo. Intente más tarde." },
-        { status: 502 }
-      );
-    }
-
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("[appointments] Unexpected error", error);
+    console.error("[appointments] Gmail SMTP error", error);
     return NextResponse.json(
-      { error: "Error interno al procesar la solicitud." },
-      { status: 500 }
+      { error: "No pudimos enviar el correo. Intente más tarde." },
+      { status: 502 }
     );
   }
 }
