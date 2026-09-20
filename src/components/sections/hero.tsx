@@ -16,7 +16,7 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[center_30%] animate-[slow-zoom_18s_ease-out_forwards]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,28,44,0.8)_0%,rgba(8,28,44,0.5)_52%,rgba(8,28,44,0.3)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(8,28,64,0.82)_0%,rgba(10,40,80,0.52)_52%,rgba(12,48,96,0.32)_100%)]" />
       </div>
 
       <div className="section-pad relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
