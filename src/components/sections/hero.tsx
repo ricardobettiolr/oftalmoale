@@ -24,7 +24,7 @@ export function Hero() {
           <h1 className="max-w-xl text-balance text-2xl font-medium leading-snug tracking-tight text-white opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_forwards] sm:text-3xl md:text-4xl">
             Precisión, experiencia y confianza para cuidar tu visión
           </h1>
-          <p className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-white opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.08s_forwards] sm:text-5xl md:text-6xl">
+          <p className="mt-5 font-display text-[2rem] leading-[1.08] tracking-tight text-white opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.08s_forwards] sm:text-5xl md:text-6xl">
             Dra. María Alejandra Rojas
           </p>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.16s_forwards] md:text-lg">

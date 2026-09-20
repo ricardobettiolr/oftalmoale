@@ -1,27 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 
-const photos = [
-  {
-    src: "/assets/clinic/exam-care.jpg",
-    alt: "Evaluación oftalmológica especializada — Dra. María Alejandra Rojas durante una evaluación con lámpara de hendidura.",
-    className:
-      "relative aspect-[4/3] overflow-hidden rounded-sm md:col-span-7 md:aspect-[16/10]",
-  },
-  {
-    src: "/assets/clinic/brand-wall.jpg",
-    alt: "Oftalmoale — Consultorio de la Dra. María Alejandra Rojas en Mérida, Venezuela.",
-    className:
-      "relative aspect-[4/5] overflow-hidden rounded-sm md:col-span-5 md:aspect-auto md:min-h-full",
-  },
-  {
-    src: "/assets/clinic/slit-lamp.jpg",
-    alt: "Precisión en cada evaluación — Exploración clínica orientada a obtener la información necesaria para un diagnóstico y tratamiento adecuados.",
-    className:
-      "relative aspect-[16/10] overflow-hidden rounded-sm md:col-span-12",
-  },
-];
-
 export function Clinic() {
   return (
     <section id="consultorio" className="section-surface section-band">
@@ -47,25 +26,17 @@ export function Clinic() {
           </address>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-12 md:gap-5">
-          {photos.map((photo, index) => (
-            <Reveal
-              key={photo.src}
-              delayMs={80 * index}
-              className={photo.className}
-            >
-              <figure className="relative h-full min-h-[220px] w-full">
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 60vw"
-                  className="object-cover object-center"
-                />
-              </figure>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delayMs={100} className="mt-12">
+          <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-sm md:aspect-[21/10]">
+            <Image
+              src="/assets/clinic/exam-care.jpg"
+              alt="Evaluación oftalmológica especializada — Dra. María Alejandra Rojas durante una evaluación con lámpara de hendidura."
+              fill
+              sizes="(max-width: 768px) 100vw, 1100px"
+              className="object-cover object-center"
+            />
+          </figure>
+        </Reveal>
       </div>
     </section>
   );
