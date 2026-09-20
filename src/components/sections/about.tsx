@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 
 export function About() {
@@ -26,18 +27,23 @@ export function About() {
               Dra. María Alejandra Rojas
             </h2>
             <p className="mt-5 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
-              Más de 2,800 cirugías realizadas
+              Más de 2.800 cirugías realizadas
             </p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
-              En Oftalmoale acompaño a cada paciente con evaluaciones claras,
-              tecnología de precisión y un plan de tratamiento pensado para
-              proteger su visión a largo plazo.
+              Atención oftalmológica especializada en segmento anterior, catarata
+              y córnea, con un enfoque basado en evaluación rigurosa, precisión
+              clínica y acompañamiento cercano en cada etapa del tratamiento.
             </p>
             <p className="mt-4 max-w-xl leading-relaxed text-[var(--color-muted)]">
-              Mi práctica se centra en el segmento anterior del ojo, con
-              especial énfasis en cirugía de catarata y córnea — siempre con
-              comunicación directa y seguimiento cercano.
+              En Oftalmoale, cada paciente recibe una valoración individual, una
+              explicación clara de su diagnóstico y un plan de manejo adaptado a
+              sus necesidades visuales.
             </p>
+            <div className="mt-8">
+              <Button asChild size="lg" variant="accent">
+                <a href="#cita">Agendar consulta</a>
+              </Button>
+            </div>
           </div>
         </Reveal>
       </div>

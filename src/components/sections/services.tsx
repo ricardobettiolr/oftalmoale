@@ -3,60 +3,52 @@ import { Reveal } from "@/components/reveal";
 const services = [
   {
     title: "Consulta oftalmológica integral",
-    copy: "Valoración completa de la salud visual, agudeza y presión intraocular, con explicación clara de hallazgos y próximos pasos.",
+    copy: "Evaluación completa de la salud ocular y la función visual, incluyendo los estudios clínicos necesarios para identificar alteraciones y establecer un plan de seguimiento o tratamiento.",
   },
   {
     title: "Segmento anterior",
-    copy: "Diagnóstico y seguimiento de condiciones de córnea, cristalino y estructuras anteriores del ojo.",
+    copy: "Evaluación, diagnóstico y seguimiento de condiciones que afectan la córnea, el cristalino y otras estructuras de la parte anterior del ojo.",
   },
   {
     title: "Cirugía de catarata",
-    copy: "Planificación quirúrgica personalizada y acompañamiento pre y postoperatorio para recuperar nitidez visual con seguridad.",
+    copy: "Evaluación preoperatoria, planificación quirúrgica individualizada y seguimiento postoperatorio orientados a lograr el mejor manejo posible de cada caso.",
   },
   {
-    title: "Cirugía de córnea",
-    copy: "Manejo especializado de patología corneal cuando el tratamiento médico no es suficiente.",
+    title: "Córnea",
+    copy: "Diagnóstico y tratamiento especializado de enfermedades de la córnea, desde el manejo médico hasta la valoración de alternativas quirúrgicas cuando están indicadas.",
   },
 ];
 
 export function Services() {
   return (
-    <section
-      id="servicios"
-      className="relative overflow-hidden border-y border-[var(--color-border)]/70 bg-[color-mix(in_srgb,var(--mist)_70%,white)] py-20 md:py-28"
-    >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(26,143,138,0.16),transparent_70%)]"
-      />
-      <div className="section-pad relative mx-auto max-w-6xl">
-        <Reveal>
-          <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
-            Servicios
-          </p>
-          <h2 className="font-display max-w-2xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
-            Atención enfocada en lo que su visión necesita
-          </h2>
-          <p className="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-            Cada consulta está orientada a un objetivo clínico concreto: entender
-            su caso, explicar opciones y actuar con precisión.
-          </p>
-        </Reveal>
+    <section id="servicios" className="section-pad mx-auto max-w-6xl py-20 md:py-28">
+      <Reveal>
+        <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
+          Servicios
+        </p>
+        <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
+          Atención oftalmológica enfocada en cada diagnóstico
+        </h2>
+        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
+          Cada consulta comienza por comprender su condición visual con precisión,
+          explicar los hallazgos de forma clara y definir los siguientes pasos de
+          acuerdo con sus necesidades.
+        </p>
+      </Reveal>
 
-        <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
-          {services.map((service, index) => (
-            <Reveal key={service.title} delayMs={80 * index}>
-              <article className="border-t border-[var(--color-ink)]/15 pt-5">
-                <h3 className="font-display text-2xl text-[var(--color-ink)]">
-                  {service.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-[var(--color-muted)]">
-                  {service.copy}
-                </p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
+      <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
+        {services.map((service, index) => (
+          <Reveal key={service.title} delayMs={80 * index}>
+            <article className="border-t border-[var(--color-ink)]/15 pt-5">
+              <h3 className="font-display text-2xl text-[var(--color-ink)]">
+                {service.title}
+              </h3>
+              <p className="mt-3 leading-relaxed text-[var(--color-muted)]">
+                {service.copy}
+              </p>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

@@ -29,7 +29,7 @@ export function Hero() {
           </p>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.16s_forwards] md:text-lg">
             Médico oftalmólogo especializada en segmento anterior, cirugía de
-            catarata y córnea, con más de 2,800 cirugías realizadas en Mérida,
+            catarata y córnea, con más de 2.800 cirugías realizadas en Mérida,
             Venezuela.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.26s_forwards]">

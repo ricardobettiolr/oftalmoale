@@ -7,10 +7,11 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { href: "#nosotros", label: "Nosotros" },
+  { href: "#experiencia", label: "Experiencia" },
   { href: "#servicios", label: "Servicios" },
   { href: "#galaxy", label: "GALAXY" },
   { href: "#consultorio", label: "Consultorio" },
-  { href: "#cita", label: "Cita" },
+  { href: "#cita", label: "Agenda" },
 ];
 
 export function SiteHeader() {

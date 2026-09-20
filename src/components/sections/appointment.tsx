@@ -72,9 +72,8 @@ export function Appointment() {
             Solicite su cita
           </h2>
           <p className="mt-4 max-w-md text-lg leading-relaxed text-[var(--color-muted)]">
-            Complete el formulario y le responderemos para coordinar horario.
-            Las solicitudes llegan a{" "}
-            <span className="text-[var(--color-ink)]">oftalmoale@gmail.com</span>.
+            Complete sus datos y nuestro equipo se pondrá en contacto con usted
+            para coordinar la fecha y hora de su consulta.
           </p>
           <address className="mt-6 max-w-md not-italic text-[var(--color-muted)]">
             <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-ink)] uppercase">
@@ -88,6 +87,10 @@ export function Appointment() {
               Mérida, Venezuela
             </p>
           </address>
+          <p className="mt-6 max-w-md text-sm text-[var(--color-muted)]">
+            Las solicitudes serán atendidas a través de{" "}
+            <span className="text-[var(--color-ink)]">oftalmoale@gmail.com</span>.
+          </p>
         </Reveal>
 
         <Reveal delayMs={100}>
@@ -109,7 +112,7 @@ export function Appointment() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email">Correo</Label>
+                <Label htmlFor="email">Correo electrónico</Label>
                 <Input
                   id="email"
                   name="email"
@@ -147,7 +150,7 @@ export function Appointment() {
                   id="reason"
                   name="reason"
                   required
-                  placeholder="Cuéntenos brevemente qué le preocupa o qué evaluación necesita."
+                  placeholder="Cuéntenos brevemente el motivo de su visita o la evaluación que desea realizar."
                   disabled={status === "loading"}
                 />
               </div>
@@ -160,7 +163,7 @@ export function Appointment() {
               className="w-full sm:w-auto"
               disabled={status === "loading"}
             >
-              {status === "loading" ? "Enviando…" : "Enviar solicitud"}
+              {status === "loading" ? "Enviando…" : "Solicitar cita"}
             </Button>
 
             {status === "success" && (
