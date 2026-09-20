@@ -15,6 +15,10 @@ export function Clinic() {
           Tecnología de exploración oftalmológica y un entorno sereno para que
           cada cita se sienta clara, ordenada y humana.
         </p>
+        <p className="mt-4 max-w-xl text-[var(--color-muted)]">
+          Centro Comercial Plaza Mayor, Piso 2 · Al lado de Liberty Express ·
+          Mérida, Venezuela
+        </p>
       </Reveal>
 
       <div className="mt-12 grid gap-4 md:grid-cols-12 md:gap-5">

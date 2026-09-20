@@ -26,7 +26,7 @@ export function About() {
               Dra. María Alejandra Rojas
             </h2>
             <p className="mt-5 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
-              Más de 500 cirugías realizadas
+              Más de 2800 cirugías realizadas
             </p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
               En Oftalmoale acompaño a cada paciente con evaluaciones claras,

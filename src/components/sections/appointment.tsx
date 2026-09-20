@@ -76,6 +76,18 @@ export function Appointment() {
             Las solicitudes llegan a{" "}
             <span className="text-[var(--color-ink)]">oftalmoale@gmail.com</span>.
           </p>
+          <address className="mt-6 max-w-md not-italic text-[var(--color-muted)]">
+            <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-ink)] uppercase">
+              Consultorio
+            </p>
+            <p className="mt-2 leading-relaxed">
+              Centro Comercial Plaza Mayor, Piso 2
+              <br />
+              Al lado de Liberty Express
+              <br />
+              Mérida, Venezuela
+            </p>
+          </address>
         </Reveal>
 
         <Reveal delayMs={100}>
