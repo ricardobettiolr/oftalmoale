@@ -11,7 +11,7 @@ export function BrandLogo({
   return (
     // eslint-disable-next-line @next/next/no-img-element -- preserve PNG alpha reliably
     <img
-      src="/assets/logo-transparent.png?v=2"
+      src="/assets/logo-transparent.png?v=3"
       alt="Oftalmoale — Dra. María Alejandra Rojas"
       width={2105}
       height={399}
