@@ -59,10 +59,7 @@ export function Appointment() {
   }
 
   return (
-    <section
-      id="cita"
-      className="border-t border-[var(--color-border)]/70 bg-[color-mix(in_srgb,var(--mist)_55%,white)] py-20 md:py-28"
-    >
+    <section id="cita" className="section-surface-alt section-band">
       <div className="section-pad mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
         <Reveal>
           <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
