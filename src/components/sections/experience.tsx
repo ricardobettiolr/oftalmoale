@@ -2,10 +2,7 @@ import { Reveal } from "@/components/reveal";
 
 export function Experience() {
   return (
-    <section
-      id="experiencia"
-      className="border-y border-[var(--color-border)]/70 bg-[color-mix(in_srgb,var(--mist)_70%,white)] py-20 md:py-28"
-    >
+    <section id="experiencia" className="section-surface-alt section-band">
       <div className="section-pad mx-auto max-w-6xl">
         <Reveal>
           <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">

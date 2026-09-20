@@ -93,6 +93,42 @@ body {
   padding-inline: clamp(1.25rem, 4vw, 3.5rem);
 }
 
+/* Alternating clinical surfaces — subtle atmosphere, not cards */
+.section-surface {
+  position: relative;
+  background: color-mix(in srgb, var(--paper) 92%, white);
+}
+
+.section-surface-alt {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 80% 60% at 8% 12%, rgba(201, 221, 232, 0.45), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 92% 88%, rgba(26, 143, 138, 0.08), transparent 50%),
+    linear-gradient(180deg, #e8f0f4 0%, var(--mist) 48%, #eef4f7 100%);
+}
+
+.section-surface-alt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.12 0 0 0 0 0.16 0 0 0 0.55 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  mix-blend-mode: multiply;
+}
+
+.section-surface > *,
+.section-surface-alt > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-band {
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(24px);

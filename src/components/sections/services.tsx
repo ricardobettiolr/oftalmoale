@@ -21,34 +21,36 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicios" className="section-pad mx-auto max-w-6xl py-20 md:py-28">
-      <Reveal>
-        <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
-          Servicios
-        </p>
-        <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
-          Atención oftalmológica enfocada en cada diagnóstico
-        </h2>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
-          Cada consulta comienza por comprender su condición visual con precisión,
-          explicar los hallazgos de forma clara y definir los siguientes pasos de
-          acuerdo con sus necesidades.
-        </p>
-      </Reveal>
+    <section id="servicios" className="section-surface section-band">
+      <div className="section-pad mx-auto max-w-6xl">
+        <Reveal>
+          <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
+            Servicios
+          </p>
+          <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
+            Atención oftalmológica enfocada en cada diagnóstico
+          </h2>
+          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
+            Cada consulta comienza por comprender su condición visual con precisión,
+            explicar los hallazgos de forma clara y definir los siguientes pasos de
+            acuerdo con sus necesidades.
+          </p>
+        </Reveal>
 
-      <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
-        {services.map((service, index) => (
-          <Reveal key={service.title} delayMs={80 * index}>
-            <article className="border-t border-[var(--color-ink)]/15 pt-5">
-              <h3 className="font-display text-2xl text-[var(--color-ink)]">
-                {service.title}
-              </h3>
-              <p className="mt-3 leading-relaxed text-[var(--color-muted)]">
-                {service.copy}
-              </p>
-            </article>
-          </Reveal>
-        ))}
+        <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
+          {services.map((service, index) => (
+            <Reveal key={service.title} delayMs={80 * index}>
+              <article className="border-t border-[var(--color-ink)]/15 pt-5">
+                <h3 className="font-display text-2xl text-[var(--color-ink)]">
+                  {service.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-[var(--color-muted)]">
+                  {service.copy}
+                </p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
