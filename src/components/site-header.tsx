@@ -1,19 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { BrandLogo } from "@/components/brand-logo";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#experiencia", label: "Experiencia" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#consultorio", label: "Consultorio" },
-  { href: "#cita", label: "Agenda" },
+  { href: "/#nosotros", label: "Nosotros" },
+  { href: "/#experiencia", label: "Experiencia" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#consultorio", label: "Consultorio" },
+  { href: "/#cita", label: "Agenda" },
+  { href: "/cirugias", label: "Cirugías" },
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
+  const onHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -35,24 +40,26 @@ export function SiteHeader() {
     setMenuOpen(false);
   }
 
+  const solidHeader = scrolled || menuOpen || !onHome;
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled || menuOpen
+        solidHeader
           ? "bg-[color-mix(in_srgb,var(--paper)_94%,transparent)] shadow-[0_1px_0_rgba(11,39,64,0.06)] backdrop-blur-md"
           : "bg-transparent"
       )}
     >
       <div className="section-pad mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 md:h-20">
-        <a
-          href="#inicio"
+        <Link
+          href="/"
           className="relative inline-flex min-w-0 shrink bg-transparent"
           aria-label="Oftalmoale — Dra. María Alejandra Rojas"
           style={{ backgroundColor: "transparent" }}
           onClick={closeMenu}
         >
-          {!scrolled && !menuOpen && (
+          {!solidHeader && (
             <span
               aria-hidden
               className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[160%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(247,250,251,0.55)_0%,transparent_70%)]"
@@ -62,22 +69,23 @@ export function SiteHeader() {
             priority
             className="relative h-7 max-w-[min(58vw,220px)] object-contain object-left sm:h-8 md:h-10 md:max-w-none"
           />
-        </a>
+        </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-6 xl:gap-7 lg:flex">
           {links.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className={cn(
                 "text-sm tracking-wide transition-opacity hover:opacity-100",
-                scrolled
+                solidHeader
                   ? "text-[var(--color-ink)]/75 hover:text-[var(--color-ink)]"
-                  : "text-white/85"
+                  : "text-white/85",
+                pathname === link.href && "text-[var(--color-accent)] opacity-100"
               )}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -85,19 +93,17 @@ export function SiteHeader() {
           <Button
             asChild
             size="sm"
-            variant={scrolled || menuOpen ? "default" : "outline"}
+            variant={solidHeader ? "default" : "outline"}
             className="hidden sm:inline-flex"
           >
-            <a href="#cita">Agendar cita</a>
+            <Link href="/#cita">Agendar cita</Link>
           </Button>
 
           <button
             type="button"
             className={cn(
               "inline-flex h-11 w-11 items-center justify-center rounded-md lg:hidden",
-              scrolled || menuOpen
-                ? "text-[var(--color-ink)]"
-                : "text-white"
+              solidHeader ? "text-[var(--color-ink)]" : "text-white"
             )}
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
@@ -136,19 +142,19 @@ export function SiteHeader() {
         >
           <nav className="section-pad mx-auto flex max-w-6xl flex-col gap-1 py-4">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
                 className="rounded-md px-3 py-3 text-base text-[var(--color-ink)] hover:bg-[var(--color-mist)]"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <Button asChild size="lg" variant="accent" className="mt-3 w-full">
-              <a href="#cita" onClick={closeMenu}>
+              <Link href="/#cita" onClick={closeMenu}>
                 Agendar cita
-              </a>
+              </Link>
             </Button>
           </nav>
         </div>

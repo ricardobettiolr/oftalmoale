@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BrandLogo } from "@/components/brand-logo";
 
 export function SiteFooter() {
@@ -18,6 +19,23 @@ export function SiteFooter() {
             >
               oftalmoale@gmail.com
             </a>
+            <nav className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-white/80">
+              <Link href="/" className="hover:text-white hover:underline underline-offset-4">
+                Inicio
+              </Link>
+              <Link
+                href="/#cita"
+                className="hover:text-white hover:underline underline-offset-4"
+              >
+                Agenda
+              </Link>
+              <Link
+                href="/cirugias"
+                className="hover:text-white hover:underline underline-offset-4"
+              >
+                Cirugías
+              </Link>
+            </nav>
           </div>
           <address className="not-italic">
             <p className="text-xs font-medium tracking-[0.14em] text-white/55 uppercase">
