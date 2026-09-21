@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/reveal";
+import { SpecialtyLine } from "@/components/specialty-line";
 
 export function Experience() {
   return (
@@ -11,19 +12,24 @@ export function Experience() {
           <p className="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
             Cuidado especializado para preservar su visión
           </p>
-          <p className="mt-6 max-w-3xl leading-relaxed text-[var(--color-muted)]">
+          <SpecialtyLine className="mt-8" />
+          <p className="mt-8 max-w-3xl leading-relaxed text-[var(--color-muted)]">
             La práctica de la Dra. María Alejandra Rojas está enfocada en el
-            diagnóstico y tratamiento de enfermedades del segmento anterior del
-            ojo, con especial dedicación a la cirugía de catarata y al manejo de
-            patologías de la córnea.
+            diagnóstico y tratamiento de enfermedades del{" "}
+            <strong className="font-semibold text-[var(--color-ink)]">
+              segmento anterior
+            </strong>{" "}
+            del ojo, con especial dedicación a la{" "}
+            <strong className="font-semibold text-[var(--color-ink)]">
+              cirugía de catarata
+            </strong>{" "}
+            y al manejo de patologías de la{" "}
+            <strong className="font-semibold text-[var(--color-ink)]">córnea</strong>.
           </p>
           <p className="mt-4 max-w-3xl leading-relaxed text-[var(--color-muted)]">
             Cada decisión clínica parte de una evaluación detallada, con
             comunicación directa y seguimiento antes, durante y después del
             tratamiento cuando el caso lo requiere.
-          </p>
-          <p className="mt-8 text-sm font-medium tracking-[0.12em] text-[var(--color-ink)] uppercase">
-            Segmento anterior · Catarata · Córnea
           </p>
         </Reveal>
       </div>

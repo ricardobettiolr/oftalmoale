@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
+import { SpecialtyLine } from "@/components/specialty-line";
 
 export function About() {
   return (
@@ -27,13 +28,17 @@ export function About() {
               <h2 className="font-display text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
                 Dra. María Alejandra Rojas
               </h2>
+              <SpecialtyLine className="mt-5" />
               <p className="mt-5 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
                 Más de 2.800 cirugías realizadas
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
-                Atención oftalmológica especializada en segmento anterior, catarata
-                y córnea, con un enfoque basado en evaluación rigurosa, precisión
-                clínica y acompañamiento cercano en cada etapa del tratamiento.
+                Atención oftalmológica especializada en{" "}
+                <strong className="font-semibold text-[var(--color-ink)]">
+                  segmento anterior, catarata y córnea
+                </strong>
+                , con un enfoque basado en evaluación rigurosa, precisión clínica
+                y acompañamiento cercano en cada etapa del tratamiento.
               </p>
               <p className="mt-4 max-w-xl leading-relaxed text-[var(--color-muted)]">
                 Cada paciente recibe una valoración individual, una explicación

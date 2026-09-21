@@ -1,21 +1,26 @@
 import { Reveal } from "@/components/reveal";
+import { SpecialtyLine } from "@/components/specialty-line";
 
 const services = [
   {
     title: "Consulta oftalmológica integral",
     copy: "Evaluación completa de la salud ocular y la función visual, incluyendo los estudios clínicos necesarios para identificar alteraciones y establecer un plan de seguimiento o tratamiento.",
+    featured: false,
   },
   {
     title: "Segmento anterior",
     copy: "Evaluación, diagnóstico y seguimiento de condiciones que afectan la córnea, el cristalino y otras estructuras de la parte anterior del ojo.",
+    featured: true,
   },
   {
     title: "Cirugía de catarata",
     copy: "Evaluación preoperatoria, planificación quirúrgica individualizada y seguimiento postoperatorio orientados a lograr el mejor manejo posible de cada caso.",
+    featured: true,
   },
   {
     title: "Córnea",
     copy: "Diagnóstico y tratamiento especializado de enfermedades de la córnea, desde el manejo médico hasta la valoración de alternativas quirúrgicas cuando están indicadas.",
+    featured: true,
   },
 ];
 
@@ -30,7 +35,8 @@ export function Services() {
           <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
             Atención oftalmológica enfocada en cada diagnóstico
           </h2>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
+          <SpecialtyLine className="mt-6" />
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
             Cada consulta comienza por comprender su condición visual con precisión,
             explicar los hallazgos de forma clara y definir los siguientes pasos de
             acuerdo con sus necesidades.
@@ -44,8 +50,20 @@ export function Services() {
               delayMs={90 * index}
               direction={index % 2 === 0 ? "left" : "right"}
             >
-              <article className="border-t border-[var(--color-ink)]/15 pt-5">
-                <h3 className="font-display text-2xl text-[var(--color-ink)]">
+              <article
+                className={
+                  service.featured
+                    ? "border-t-2 border-[var(--color-accent)] pt-5"
+                    : "border-t border-[var(--color-ink)]/15 pt-5"
+                }
+              >
+                <h3
+                  className={
+                    service.featured
+                      ? "font-display text-2xl text-[var(--color-accent)] md:text-[1.65rem]"
+                      : "font-display text-2xl text-[var(--color-ink)]"
+                  }
+                >
                   {service.title}
                 </h3>
                 <p className="mt-3 leading-relaxed text-[var(--color-muted)]">

@@ -9,8 +9,8 @@ export function SiteFooter() {
         <div className="grid max-w-2xl gap-8 text-sm leading-relaxed text-white/75 sm:grid-cols-2">
           <div>
             <p>Dra. María Alejandra Rojas · Oftalmóloga</p>
-            <p className="mt-1">
-              Especialista en segmento anterior · Cirugía de catarata y córnea
+            <p className="mt-2 font-display text-lg leading-snug text-white">
+              Segmento anterior · Cirugía de catarata · Córnea
             </p>
             <p className="mt-2 text-white/90">Más de 2.800 cirugías realizadas</p>
             <a
