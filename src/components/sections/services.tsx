@@ -39,7 +39,11 @@ export function Services() {
 
         <div className="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-2">
           {services.map((service, index) => (
-            <Reveal key={service.title} delayMs={80 * index}>
+            <Reveal
+              key={service.title}
+              delayMs={90 * index}
+              direction={index % 2 === 0 ? "left" : "right"}
+            >
               <article className="border-t border-[var(--color-ink)]/15 pt-5">
                 <h3 className="font-display text-2xl text-[var(--color-ink)]">
                   {service.title}
