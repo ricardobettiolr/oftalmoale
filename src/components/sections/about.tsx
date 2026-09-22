@@ -3,6 +3,24 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
 import { SpecialtyLine } from "@/components/specialty-line";
 
+const credentials = [
+  {
+    year: "2001",
+    title: "Medicina",
+    place: "Universidad de los Andes (Venezuela)",
+  },
+  {
+    year: "2008",
+    title: "Oftalmología",
+    place: "Universidad de los Andes (Venezuela)",
+  },
+  {
+    year: "2010",
+    title: "Fellow en segmento anterior",
+    place: "Clínica Oftalmológica del Caribe (Colombia)",
+  },
+];
+
 export function About() {
   return (
     <section id="nosotros" className="section-surface section-band">
@@ -29,7 +47,30 @@ export function About() {
                 Dra. María Alejandra Rojas
               </h2>
               <SpecialtyLine className="mt-5" />
-              <p className="mt-5 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
+
+              <ol className="mt-7 max-w-xl border-l border-[var(--color-border)] pl-5">
+                {credentials.map((item) => (
+                  <li key={item.year} className="relative pb-5 last:pb-0">
+                    <span
+                      aria-hidden
+                      className="absolute -left-[1.4rem] top-1.5 h-2 w-2 rounded-full bg-[var(--color-accent)]"
+                    />
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                      <time className="font-medium tabular-nums tracking-wide text-[var(--color-accent)]">
+                        {item.year}
+                      </time>
+                      <span className="font-medium text-[var(--color-ink)]">
+                        {item.title}
+                      </span>
+                    </div>
+                    <p className="mt-0.5 text-sm leading-snug text-[var(--color-muted)]">
+                      {item.place}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+
+              <p className="mt-7 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
                 Más de 2.800 cirugías realizadas en Colombia y Venezuela
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
