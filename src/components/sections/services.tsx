@@ -1,5 +1,4 @@
 import { Reveal } from "@/components/reveal";
-import { SpecialtyLine } from "@/components/specialty-line";
 
 const services = [
   {
@@ -27,7 +26,6 @@ export function Services() {
           <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
             Atención oftalmológica enfocada en cada diagnóstico
           </h2>
-          <SpecialtyLine className="mt-6" />
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
             Cada consulta comienza por comprender su condición visual con
             precisión, explicar los hallazgos de forma clara y definir los
