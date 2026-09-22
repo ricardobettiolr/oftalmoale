@@ -5,7 +5,17 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-[var(--color-border)] bg-[var(--color-ink)] text-white">
       <div className="section-pad mx-auto flex max-w-6xl flex-col gap-8 py-12 md:flex-row md:items-start md:justify-between">
-        <BrandLogo className="h-10" />
+        <Link
+          href="/"
+          className="relative inline-flex shrink-0 bg-transparent"
+          aria-label="Oftalmoale — Dra. María Alejandra Rojas"
+        >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[160%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(247,250,251,0.55)_0%,transparent_70%)]"
+          />
+          <BrandLogo className="relative h-10 object-contain object-left" />
+        </Link>
         <div className="grid max-w-2xl gap-8 text-sm leading-relaxed text-white/75 sm:grid-cols-2">
           <div>
             <p>Dra. María Alejandra Rojas · Oftalmóloga</p>
