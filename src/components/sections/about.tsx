@@ -30,15 +30,17 @@ export function About() {
               </h2>
               <SpecialtyLine className="mt-5" />
               <p className="mt-5 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
-                Más de 2.800 cirugías realizadas
+                Más de 2.800 cirugías realizadas en Colombia y Venezuela
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
-                Atención oftalmológica especializada en{" "}
+                La Dra. María Alejandra Rojas brinda atención oftalmológica
+                especializada en{" "}
                 <strong className="font-semibold text-[var(--color-ink)]">
                   segmento anterior, catarata y córnea
                 </strong>
-                , con un enfoque basado en evaluación rigurosa, precisión clínica
-                y acompañamiento cercano en cada etapa del tratamiento.
+                . Su práctica se sustenta en una evaluación rigurosa, precisión
+                clínica y un acompañamiento cercano en cada etapa del
+                tratamiento.
               </p>
               <p className="mt-4 max-w-xl leading-relaxed text-[var(--color-muted)]">
                 Cada paciente recibe una valoración individual, una explicación

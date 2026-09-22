@@ -12,7 +12,9 @@ export function SiteFooter() {
             <p className="mt-2 font-display text-lg leading-snug text-white">
               Segmento anterior · Cirugía de catarata · Córnea
             </p>
-            <p className="mt-2 text-white/90">Más de 2.800 cirugías realizadas</p>
+            <p className="mt-2 text-white/90">
+              Más de 2.800 cirugías realizadas en Colombia y Venezuela
+            </p>
             <a
               href="mailto:oftalmoale@gmail.com"
               className="mt-3 inline-block text-white underline-offset-4 hover:underline"
