@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { BrandLogo } from "@/components/brand-logo";
+import { BrandLogoLink } from "@/components/brand-logo-link";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -52,24 +52,12 @@ export function SiteHeader() {
       )}
     >
       <div className="section-pad mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 md:h-20">
-        <Link
-          href="/"
-          className="relative inline-flex min-w-0 shrink bg-transparent"
-          aria-label="Oftalmoale — Dra. María Alejandra Rojas"
-          style={{ backgroundColor: "transparent" }}
+        <BrandLogoLink
+          priority
+          contrast={solidHeader ? "none" : "halo"}
           onClick={closeMenu}
-        >
-          {!solidHeader && (
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[160%] w-[130%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(247,250,251,0.55)_0%,transparent_70%)]"
-            />
-          )}
-          <BrandLogo
-            priority
-            className="relative h-7 max-w-[min(58vw,220px)] object-contain object-left sm:h-8 md:h-10 md:max-w-none"
-          />
-        </Link>
+          logoClassName="h-7 max-w-[min(58vw,220px)] sm:h-8 md:h-10 md:max-w-none"
+        />
 
         <nav className="hidden items-center gap-6 xl:gap-7 lg:flex">
           {links.map((link) => (
