@@ -19,6 +19,12 @@ export function SiteFooter() {
             >
               oftalmoale@gmail.com
             </a>
+            <a
+              href="tel:+584147204850"
+              className="mt-2 block text-white underline-offset-4 hover:underline"
+            >
+              +58 414-7204850
+            </a>
             <nav className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-white/80">
               <Link href="/" className="hover:text-white hover:underline underline-offset-4">
                 Inicio
