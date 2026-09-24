@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { SpecialtyLine } from "@/components/specialty-line";
 import Image from "next/image";
 
 export function Hero() {
@@ -37,14 +36,12 @@ export function Hero() {
             <p className="mt-5 font-display text-[2rem] font-medium leading-[1.08] tracking-tight text-white opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.08s_forwards] sm:text-5xl md:text-6xl">
               Dra. María Alejandra Rojas
             </p>
-            <SpecialtyLine
-              tone="light"
-              className="mt-5 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.12s_forwards]"
-            />
-            <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-white opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.18s_forwards] md:text-lg">
-              Médico oftalmólogo con consulta en oftalmología general y
-              especialización en segmento anterior, cirugía de catarata y córnea,
-              con más de 2.800 cirugías realizadas en Colombia y Venezuela.
+            <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-white opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.14s_forwards] md:text-lg">
+              Oftalmóloga especialista en segmento anterior, con especial
+              dedicación a la cirugía de catarata y córnea.
+            </p>
+            <p className="mt-3 max-w-xl text-base font-medium leading-relaxed text-white/95 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.2s_forwards] md:text-lg">
+              Más de 2.800 cirugías realizadas en Colombia y Venezuela.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 opacity-0 animate-[fade-up_0.9s_cubic-bezier(0.22,1,0.36,1)_0.28s_forwards]">
               <Button asChild size="lg" variant="accent">
