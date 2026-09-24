@@ -21,6 +21,17 @@ const credentials = [
   },
 ];
 
+const congresses = [
+  "Ponente en congresos nacionales de oftalmología en Venezuela",
+  "Ponente en el Congreso Nacional de Oftalmología de Colombia (×2)",
+  "Facocaribe, Barranquilla (Colombia)",
+  "Ponente en el Precongreso Colombo-Venezolano de Catarata y Refractiva",
+  "Facoelche, España",
+  "Congresos Panamericanos",
+  "ASCRS",
+  "Instructora de X.labs de cirugía de FACO y panelista en Facoextrema, Buenos Aires, Argentina",
+];
+
 export function About() {
   return (
     <section id="nosotros" className="section-surface section-band">
@@ -70,7 +81,27 @@ export function About() {
                 ))}
               </ol>
 
-              <p className="mt-7 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
+              <div className="mt-8 max-w-xl">
+                <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
+                  Congresos
+                </p>
+                <ul className="mt-3 space-y-2.5">
+                  {congresses.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-snug text-[var(--color-muted)]"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <p className="mt-8 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
                 Más de 2.800 cirugías realizadas en Colombia y Venezuela
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
