@@ -17,7 +17,8 @@ export function SpecialtyLine({
   return (
     <ul
       className={cn(
-        "flex flex-wrap items-baseline gap-x-3 gap-y-2",
+        // Mobile: single column (never 2+1 wrap). sm+: one horizontal row with ·
+        "flex flex-col gap-y-2 sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-3 sm:gap-y-2",
         className
       )}
       aria-label="Especialidades"
@@ -28,7 +29,7 @@ export function SpecialtyLine({
             <span
               aria-hidden
               className={cn(
-                "select-none text-sm",
+                "hidden select-none text-sm sm:inline",
                 tone === "light" ? "text-white/40" : "text-[var(--color-accent)]/50"
               )}
             >
@@ -37,7 +38,7 @@ export function SpecialtyLine({
           ) : null}
           <span
             className={cn(
-              "font-display text-xl leading-tight tracking-tight md:text-2xl",
+              "font-display text-lg leading-tight tracking-tight sm:text-xl md:text-2xl",
               tone === "light"
                 ? "text-white"
                 : "text-[var(--color-accent)]"
