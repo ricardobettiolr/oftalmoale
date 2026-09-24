@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
-import { SpecialtyLine } from "@/components/specialty-line";
 
 const credentials = [
   {
@@ -36,8 +35,8 @@ export function About() {
   return (
     <section id="nosotros" className="section-surface section-band">
       <div className="section-pad mx-auto max-w-6xl">
-        <div className="grid items-start gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-x-16 md:gap-y-8">
-          <Reveal className="order-1">
+        <div className="grid items-start gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
+          <Reveal>
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
               <Image
                 src="/assets/clinic/doctor-portrait.jpg"
@@ -49,10 +48,7 @@ export function About() {
             </div>
           </Reveal>
 
-          <Reveal
-            delayMs={120}
-            className="order-2 md:col-start-2 md:row-start-1 md:row-span-2"
-          >
+          <Reveal delayMs={120}>
             <div>
               <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
                 Médico oftalmólogo
@@ -60,27 +56,23 @@ export function About() {
               <h2 className="font-display text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
                 Dra. María Alejandra Rojas
               </h2>
-              <SpecialtyLine className="mt-5" />
-              <p className="mt-7 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
-                Más de 2.800 cirugías realizadas en Colombia y Venezuela
+              <p className="mt-6 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
+                Más de 2.800 cirugías realizadas en Colombia y Venezuela.
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
-                La Dra. María Alejandra Rojas brinda atención en{" "}
-                <strong className="font-semibold text-[var(--color-ink)]">
-                  oftalmología general
-                </strong>{" "}
-                y atención especializada en{" "}
-                <strong className="font-semibold text-[var(--color-ink)]">
-                  segmento anterior, catarata y córnea
-                </strong>
-                . Su práctica se sustenta en una evaluación rigurosa, precisión
-                clínica y un acompañamiento cercano en cada etapa del
-                tratamiento.
+                Oftalmóloga especialista en cirugía de catarata, córnea y
+                segmento anterior, con más de 18 años de trayectoria médica y
+                amplia experiencia clínica y quirúrgica.
               </p>
               <p className="mt-4 max-w-xl leading-relaxed text-[var(--color-muted)]">
-                Cada paciente recibe una valoración individual, una explicación
-                clara de su diagnóstico y un plan de manejo adaptado a sus
-                necesidades visuales.
+                Formada en la Universidad de los Andes (Venezuela), con
+                fellowship en segmento anterior en la Clínica Oftalmológica del
+                Caribe (Colombia).
+              </p>
+              <p className="mt-4 max-w-xl leading-relaxed text-[var(--color-muted)]">
+                Su experiencia abarca la cirugía de catarata y córnea, así como
+                la evaluación, diagnóstico y manejo integral de pacientes en
+                oftalmología general.
               </p>
               <div className="mt-8">
                 <Button asChild size="lg" variant="accent">
@@ -89,60 +81,54 @@ export function About() {
               </div>
             </div>
           </Reveal>
-
-          <div className="order-3 space-y-8 md:col-start-1">
-            <Reveal delayMs={80}>
-              <div>
-                <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
-                  Formación
-                </p>
-                <ol className="mt-4 border-l border-[var(--color-border)] pl-5">
-                  {credentials.map((item) => (
-                    <li key={item.year} className="relative pb-5 last:pb-0">
-                      <span
-                        aria-hidden
-                        className="absolute -left-[1.4rem] top-1.5 h-2 w-2 rounded-full bg-[var(--color-accent)]"
-                      />
-                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                        <time className="font-medium tabular-nums tracking-wide text-[var(--color-accent)]">
-                          {item.year}
-                        </time>
-                        <span className="font-medium text-[var(--color-ink)]">
-                          {item.title}
-                        </span>
-                      </div>
-                      <p className="mt-0.5 text-sm leading-snug text-[var(--color-muted)]">
-                        {item.place}
-                      </p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={120}>
-              <div>
-                <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
-                  Congresos
-                </p>
-                <ul className="mt-3 space-y-2.5">
-                  {congresses.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-3 text-sm leading-snug text-[var(--color-muted)]"
-                    >
-                      <span
-                        aria-hidden
-                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          </div>
         </div>
+
+        <Reveal delayMs={100}>
+          <div className="mt-14 grid gap-10 md:mt-16 md:grid-cols-2 md:items-start md:gap-0">
+            <div className="md:pr-10 lg:pr-12">
+              <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
+                Formación
+              </p>
+              <ol className="mt-4 space-y-5">
+                {credentials.map((item) => (
+                  <li key={item.year}>
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                      <time className="font-medium tabular-nums tracking-wide text-[var(--color-accent)]">
+                        {item.year}
+                      </time>
+                      <span className="font-medium text-[var(--color-ink)]">
+                        {item.title}
+                      </span>
+                    </div>
+                    <p className="mt-0.5 text-sm leading-snug text-[var(--color-muted)]">
+                      {item.place}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <div className="border-t border-[var(--color-border)] pt-10 md:border-t-0 md:border-l md:pt-0 md:pl-10 lg:pl-12">
+              <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
+                Congresos
+              </p>
+              <ul className="mt-4 space-y-2.5">
+                {congresses.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-snug text-[var(--color-muted)]"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
