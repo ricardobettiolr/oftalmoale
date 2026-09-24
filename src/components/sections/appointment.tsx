@@ -119,7 +119,7 @@ export function Appointment() {
         <Reveal delayMs={100}>
           <form
             onSubmit={onSubmit}
-            className="space-y-5 rounded-sm border border-[var(--color-border)] bg-white/70 p-6 shadow-[0_20px_60px_rgba(11,39,64,0.06)] backdrop-blur-sm md:p-8"
+            className="section-surface-alt relative space-y-5 overflow-hidden rounded-sm border border-[var(--color-border)] p-6 shadow-[0_20px_60px_rgba(11,39,64,0.08)] md:p-8"
             noValidate
           >
             <div className="grid gap-5 sm:grid-cols-2">
