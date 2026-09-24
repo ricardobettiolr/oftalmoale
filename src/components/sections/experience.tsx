@@ -14,8 +14,11 @@ export function Experience() {
           </p>
           <SpecialtyLine className="mt-8" />
           <p className="mt-8 max-w-3xl leading-relaxed text-[var(--color-muted)]">
-            La práctica de la Dra. María Alejandra Rojas está enfocada en el
-            diagnóstico y tratamiento de enfermedades del{" "}
+            La práctica de la Dra. María Alejandra Rojas incluye consulta de{" "}
+            <strong className="font-semibold text-[var(--color-ink)]">
+              oftalmología general
+            </strong>{" "}
+            y está enfocada en el diagnóstico y tratamiento de enfermedades del{" "}
             <strong className="font-semibold text-[var(--color-ink)]">
               segmento anterior
             </strong>{" "}

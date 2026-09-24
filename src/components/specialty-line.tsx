@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 
 const specialties = [
+  "Oftalmología general",
   "Segmento anterior",
   "Cirugía de catarata",
   "Córnea",

@@ -105,8 +105,11 @@ export function About() {
                 Más de 2.800 cirugías realizadas en Colombia y Venezuela
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
-                La Dra. María Alejandra Rojas brinda atención oftalmológica
-                especializada en{" "}
+                La Dra. María Alejandra Rojas brinda atención en{" "}
+                <strong className="font-semibold text-[var(--color-ink)]">
+                  oftalmología general
+                </strong>{" "}
+                y atención especializada en{" "}
                 <strong className="font-semibold text-[var(--color-ink)]">
                   segmento anterior, catarata y córnea
                 </strong>

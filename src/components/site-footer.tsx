@@ -10,7 +10,8 @@ export function SiteFooter() {
           <div>
             <p>Dra. María Alejandra Rojas · Oftalmóloga</p>
             <p className="mt-2 font-display text-lg leading-snug text-white">
-              Segmento anterior · Cirugía de catarata · Córnea
+              Oftalmología general · Segmento anterior · Cirugía de catarata ·
+              Córnea
             </p>
             <p className="mt-2 text-white/90">
               Más de 2.800 cirugías realizadas en Colombia y Venezuela
