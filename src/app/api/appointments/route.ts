@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import {
+  INVALID_CONSULTATION_DATE_MESSAGE,
+  validatePreferredDate,
+} from "@/lib/appointment-dates";
 
 type AppointmentBody = {
   name?: unknown;
@@ -42,6 +46,14 @@ export async function POST(request: Request) {
   if (!isValidEmail(email)) {
     return NextResponse.json(
       { error: "Ingrese un correo electrónico válido." },
+      { status: 400 }
+    );
+  }
+
+  const dateCheck = validatePreferredDate(preferredDate);
+  if (!dateCheck.ok) {
+    return NextResponse.json(
+      { error: dateCheck.error || INVALID_CONSULTATION_DATE_MESSAGE },
       { status: 400 }
     );
   }

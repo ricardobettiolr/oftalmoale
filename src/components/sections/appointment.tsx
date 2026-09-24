@@ -1,17 +1,35 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Reveal } from "@/components/reveal";
+import {
+  CONSULTATION_DAYS_NOTE,
+  INVALID_CONSULTATION_DATE_MESSAGE,
+  todayISODate,
+  validatePreferredDate,
+} from "@/lib/appointment-dates";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export function Appointment() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const [dateError, setDateError] = useState("");
+  const minDate = useMemo(() => todayISODate(), []);
+
+  function checkPreferredDate(value: string) {
+    const result = validatePreferredDate(value);
+    if (!result.ok) {
+      setDateError(result.error);
+      return false;
+    }
+    setDateError("");
+    return true;
+  }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -20,6 +38,13 @@ export function Appointment() {
 
     const form = event.currentTarget;
     const data = new FormData(form);
+    const preferredDate = String(data.get("preferredDate") ?? "");
+
+    if (!checkPreferredDate(preferredDate)) {
+      setStatus("error");
+      setMessage(INVALID_CONSULTATION_DATE_MESSAGE);
+      return;
+    }
 
     try {
       const response = await fetch("/api/appointments", {
@@ -29,7 +54,7 @@ export function Appointment() {
           name: data.get("name"),
           email: data.get("email"),
           phone: data.get("phone"),
-          preferredDate: data.get("preferredDate"),
+          preferredDate,
           reason: data.get("reason"),
         }),
       });
@@ -49,6 +74,7 @@ export function Appointment() {
       setMessage(
         "Solicitud enviada. El equipo de Oftalmoale le contactará para confirmar su cita."
       );
+      setDateError("");
       form.reset();
     } catch {
       setStatus("error");
@@ -138,8 +164,36 @@ export function Appointment() {
                   id="preferredDate"
                   name="preferredDate"
                   type="date"
+                  min={minDate}
                   disabled={status === "loading"}
+                  aria-describedby="preferredDate-note preferredDate-error"
+                  aria-invalid={dateError ? true : undefined}
+                  onChange={(event) => {
+                    const value = event.target.value;
+                    if (!value) {
+                      setDateError("");
+                      return;
+                    }
+                    if (!checkPreferredDate(value)) {
+                      event.target.value = "";
+                    }
+                  }}
                 />
+                <p
+                  id="preferredDate-note"
+                  className="text-sm leading-snug text-[var(--color-muted)]"
+                >
+                  {CONSULTATION_DAYS_NOTE}
+                </p>
+                {dateError ? (
+                  <p
+                    id="preferredDate-error"
+                    role="alert"
+                    className="text-sm text-red-700"
+                  >
+                    {dateError}
+                  </p>
+                ) : null}
               </div>
               <div className="space-y-2 sm:col-span-2">
                 <Label htmlFor="reason">Motivo de la consulta</Label>
