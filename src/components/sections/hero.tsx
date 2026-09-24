@@ -16,9 +16,9 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[center_30%] animate-[slow-zoom_18s_ease-out_forwards]"
         />
-        {/* Neutral dark overlay — stronger on the text side, no blue cast */}
-        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(0,0,0,0.78)_0%,rgba(0,0,0,0.58)_42%,rgba(0,0,0,0.28)_72%,rgba(0,0,0,0.18)_100%)]" />
-        <div className="absolute inset-y-0 left-0 w-full max-w-3xl bg-[radial-gradient(ellipse_at_left_center,rgba(0,0,0,0.55)_0%,transparent_72%)] md:w-[70%]" />
+        {/* Neutral dark overlays — softer on mobile (full-width radial used to stack too heavy) */}
+        <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.38)_42%,rgba(0,0,0,0.18)_72%,rgba(0,0,0,0.1)_100%)] md:bg-[linear-gradient(105deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.52)_42%,rgba(0,0,0,0.26)_72%,rgba(0,0,0,0.16)_100%)]" />
+        <div className="absolute inset-y-0 left-0 w-[78%] bg-[radial-gradient(ellipse_at_left_center,rgba(0,0,0,0.38)_0%,transparent_72%)] md:w-[70%] md:bg-[radial-gradient(ellipse_at_left_center,rgba(0,0,0,0.5)_0%,transparent_72%)]" />
       </div>
 
       <div className="section-pad relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
@@ -26,7 +26,7 @@ export function Hero() {
           {/* Local scrim behind copy for crisp readability */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -inset-x-4 -inset-y-6 rounded-sm bg-black/35 blur-2xl md:-inset-x-8 md:-inset-y-8 md:bg-black/30"
+            className="pointer-events-none absolute -inset-x-4 -inset-y-6 rounded-sm bg-black/22 blur-2xl md:-inset-x-8 md:-inset-y-8 md:bg-black/28"
           />
 
           <div className="relative [text-shadow:0_1px_2px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)]">
