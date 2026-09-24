@@ -1,11 +1,11 @@
-/** Consultation days: Monday (1), Wednesday (3), Thursday (4). JS getDay(): Sun=0. */
-export const CONSULTATION_WEEKDAYS = [1, 3, 4] as const;
+/** Consultation days: Monday (1), Wednesday (3), Friday (5). JS getDay(): Sun=0. */
+export const CONSULTATION_WEEKDAYS = [1, 3, 5] as const;
 
 export const CONSULTATION_DAYS_NOTE =
-  "Las consultas se atienden los lunes, miércoles y jueves.";
+  "Las consultas se atienden los lunes, miércoles y viernes.";
 
 export const INVALID_CONSULTATION_DATE_MESSAGE =
-  "Seleccione un lunes, miércoles o jueves a partir de hoy.";
+  "Seleccione un lunes, miércoles o viernes a partir de hoy.";
 
 /** Local calendar YYYY-MM-DD for today (avoids UTC off-by-one). */
 export function todayISODate(now = new Date()) {
@@ -40,7 +40,7 @@ export function isConsultationWeekday(date: Date) {
 /**
  * Validates preferred consultation date.
  * Empty is allowed (optional field). Non-empty must be a real date,
- * not in the past, and Mon/Wed/Thu.
+ * not in the past, and Mon/Wed/Fri.
  */
 export function validatePreferredDate(value: string, now = new Date()) {
   const trimmed = value.trim();

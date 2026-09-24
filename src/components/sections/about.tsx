@@ -36,8 +36,8 @@ export function About() {
   return (
     <section id="nosotros" className="section-surface section-band">
       <div className="section-pad mx-auto max-w-6xl">
-        <div className="grid items-center gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
-          <Reveal>
+        <div className="grid items-start gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-x-16 md:gap-y-8">
+          <Reveal className="order-1">
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
               <Image
                 src="/assets/clinic/doctor-portrait.jpg"
@@ -49,7 +49,10 @@ export function About() {
             </div>
           </Reveal>
 
-          <Reveal delayMs={120}>
+          <Reveal
+            delayMs={120}
+            className="order-2 md:col-start-2 md:row-start-1 md:row-span-2"
+          >
             <div>
               <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
                 Médico oftalmólogo
@@ -58,50 +61,7 @@ export function About() {
                 Dra. María Alejandra Rojas
               </h2>
               <SpecialtyLine className="mt-5" />
-
-              <ol className="mt-7 max-w-xl border-l border-[var(--color-border)] pl-5">
-                {credentials.map((item) => (
-                  <li key={item.year} className="relative pb-5 last:pb-0">
-                    <span
-                      aria-hidden
-                      className="absolute -left-[1.4rem] top-1.5 h-2 w-2 rounded-full bg-[var(--color-accent)]"
-                    />
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
-                      <time className="font-medium tabular-nums tracking-wide text-[var(--color-accent)]">
-                        {item.year}
-                      </time>
-                      <span className="font-medium text-[var(--color-ink)]">
-                        {item.title}
-                      </span>
-                    </div>
-                    <p className="mt-0.5 text-sm leading-snug text-[var(--color-muted)]">
-                      {item.place}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-
-              <div className="mt-8 max-w-xl">
-                <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
-                  Congresos
-                </p>
-                <ul className="mt-3 space-y-2.5">
-                  {congresses.map((item) => (
-                    <li
-                      key={item}
-                      className="flex gap-3 text-sm leading-snug text-[var(--color-muted)]"
-                    >
-                      <span
-                        aria-hidden
-                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <p className="mt-8 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
+              <p className="mt-7 font-display text-2xl text-[var(--color-ink)] md:text-3xl">
                 Más de 2.800 cirugías realizadas en Colombia y Venezuela
               </p>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-muted)]">
@@ -129,6 +89,59 @@ export function About() {
               </div>
             </div>
           </Reveal>
+
+          <div className="order-3 space-y-8 md:col-start-1">
+            <Reveal delayMs={80}>
+              <div>
+                <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
+                  Formación
+                </p>
+                <ol className="mt-4 border-l border-[var(--color-border)] pl-5">
+                  {credentials.map((item) => (
+                    <li key={item.year} className="relative pb-5 last:pb-0">
+                      <span
+                        aria-hidden
+                        className="absolute -left-[1.4rem] top-1.5 h-2 w-2 rounded-full bg-[var(--color-accent)]"
+                      />
+                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
+                        <time className="font-medium tabular-nums tracking-wide text-[var(--color-accent)]">
+                          {item.year}
+                        </time>
+                        <span className="font-medium text-[var(--color-ink)]">
+                          {item.title}
+                        </span>
+                      </div>
+                      <p className="mt-0.5 text-sm leading-snug text-[var(--color-muted)]">
+                        {item.place}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </Reveal>
+
+            <Reveal delayMs={120}>
+              <div>
+                <p className="text-sm font-medium tracking-[0.14em] text-[var(--color-accent)] uppercase">
+                  Congresos
+                </p>
+                <ul className="mt-3 space-y-2.5">
+                  {congresses.map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-sm leading-snug text-[var(--color-muted)]"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
