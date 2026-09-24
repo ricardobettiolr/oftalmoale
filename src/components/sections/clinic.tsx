@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal";
 
 export function Clinic() {
   return (
-    <section id="consultorio" className="section-surface section-band">
+    <section id="consultorio" className="section-surface-alt section-band">
       <div className="section-pad mx-auto max-w-6xl">
         <Reveal>
           <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">

@@ -85,7 +85,7 @@ export function Appointment() {
   }
 
   return (
-    <section id="cita" className="section-surface-alt section-band">
+    <section id="cita" className="section-surface section-band">
       <div className="section-pad mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
         <Reveal>
           <p className="mb-3 text-sm font-medium tracking-[0.18em] text-[var(--color-accent)] uppercase">
