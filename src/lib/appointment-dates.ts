@@ -5,7 +5,7 @@ export const CONSULTATION_DAYS_NOTE =
   "Las consultas se atienden los lunes, miércoles y jueves.";
 
 export const INVALID_CONSULTATION_DATE_MESSAGE =
-  "Seleccione una fecha futura en lunes, miércoles o jueves.";
+  "Seleccione un lunes, miércoles o jueves a partir de hoy.";
 
 /** Local calendar YYYY-MM-DD for today (avoids UTC off-by-one). */
 export function todayISODate(now = new Date()) {
