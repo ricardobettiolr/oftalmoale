@@ -9,30 +9,22 @@ export function Experience() {
           <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
             Experiencia y especialización
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-[var(--color-muted)]">
-            Cuidado especializado para preservar su visión
+          <p className="mt-4 max-w-3xl text-lg text-[var(--color-muted)]">
+            Atención oftalmológica especializada para el diagnóstico,
+            tratamiento y cuidado integral de la visión.
           </p>
           <SpecialtyLine className="mt-8" />
           <p className="mt-8 max-w-3xl leading-relaxed text-[var(--color-muted)]">
-            La práctica de la Dra. María Alejandra Rojas incluye consulta de{" "}
-            <strong className="font-semibold text-[var(--color-ink)]">
-              oftalmología general
-            </strong>{" "}
-            y está enfocada en el diagnóstico y tratamiento de enfermedades del{" "}
-            <strong className="font-semibold text-[var(--color-ink)]">
-              segmento anterior
-            </strong>{" "}
-            del ojo, con especial dedicación a la{" "}
-            <strong className="font-semibold text-[var(--color-ink)]">
-              cirugía de catarata
-            </strong>{" "}
-            y al manejo de patologías de la{" "}
-            <strong className="font-semibold text-[var(--color-ink)]">córnea</strong>.
+            La práctica de la Dra. María Alejandra Rojas comprende la
+            oftalmología general y se especializa en el diagnóstico y
+            tratamiento de enfermedades del segmento anterior, con especial
+            dedicación a la cirugía de catarata y al manejo de patologías de la
+            córnea.
           </p>
           <p className="mt-4 max-w-3xl leading-relaxed text-[var(--color-muted)]">
-            Cada decisión clínica parte de una evaluación detallada, con
-            comunicación directa y seguimiento antes, durante y después del
-            tratamiento cuando el caso lo requiere.
+            Cada paciente recibe una evaluación individualizada, una explicación
+            clara de las alternativas de tratamiento y el seguimiento necesario
+            durante cada etapa de su atención.
           </p>
         </Reveal>
       </div>
