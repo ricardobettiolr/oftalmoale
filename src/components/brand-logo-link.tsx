@@ -11,8 +11,12 @@ type BrandLogoLinkProps = {
   logoClassName?: string;
   priority?: boolean;
   onClick?: () => void;
-  /** none = header on light surface; halo = nav over hero; plate = solid paper on dark bg */
-  contrast?: "none" | "halo" | "plate";
+  /**
+   * none = light nav (dark-text logo)
+   * halo = transparent nav over hero (dark-text logo + light scrim)
+   * onDark = dark/ink surfaces (white-text logo, no paper plate)
+   */
+  contrast?: "none" | "halo" | "onDark";
 };
 
 export function BrandLogoLink({
@@ -28,21 +32,17 @@ export function BrandLogoLink({
       onClick={onClick}
       aria-label="Oftalmoale — Dra. María Alejandra Rojas"
       className={cn(
-        "relative inline-flex min-w-0 shrink",
-        contrast === "plate" &&
-          "rounded-md bg-[var(--color-paper)] px-3 py-2 shadow-[0_1px_0_rgba(11,39,64,0.06)]",
-        contrast !== "plate" && "bg-transparent",
+        "relative inline-flex min-w-0 shrink bg-transparent",
         className
       )}
-      style={
-        contrast !== "plate" ? { backgroundColor: "transparent" } : undefined
-      }
+      style={{ backgroundColor: "transparent" }}
     >
-      {(contrast === "halo" || contrast === "plate") && (
+      {contrast === "halo" && (
         <span aria-hidden className={brandLogoHaloClassName} />
       )}
       <BrandLogo
         priority={priority}
+        variant={contrast === "onDark" ? "onDark" : "default"}
         className={cn("relative object-contain object-left", logoClassName)}
       />
     </Link>
