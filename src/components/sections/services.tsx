@@ -2,17 +2,17 @@ import { Reveal } from "@/components/reveal";
 
 const leadService = {
   title: "Oftalmología general",
-  copy: "Consulta oftalmológica integral para la evaluación de la salud ocular y la función visual: exploración clínica, diagnóstico de alteraciones frecuentes y seguimiento orientado a prevenir complicaciones y preservar su visión.",
+  copy: "Evaluación integral de la salud ocular y la función visual, orientada al diagnóstico de alteraciones frecuentes, seguimiento de enfermedades oculares y prevención de complicaciones.",
 };
 
 const specialtyServices = [
   {
     title: "Segmento anterior",
-    copy: "Evaluación, diagnóstico y seguimiento de condiciones que afectan la córnea, el cristalino y otras estructuras de la parte anterior del ojo.",
+    copy: "Evaluación, diagnóstico y tratamiento de condiciones que afectan la córnea, el cristalino y otras estructuras de la parte anterior del ojo.",
   },
   {
     title: "Cirugía de catarata",
-    copy: "Evaluación preoperatoria, planificación quirúrgica individualizada y seguimiento postoperatorio orientados a lograr el mejor manejo posible de cada caso.",
+    copy: "Evaluación preoperatoria, planificación quirúrgica individualizada y seguimiento postoperatorio para abordar cada caso de acuerdo con las características visuales y clínicas del paciente.",
   },
   {
     title: "Córnea",
@@ -29,14 +29,14 @@ export function Services() {
             Servicios
           </p>
           <h2 className="font-display max-w-3xl text-4xl leading-tight text-[var(--color-ink)] md:text-5xl">
-            Atención oftalmológica enfocada en cada diagnóstico
+            Atención oftalmológica adaptada a cada diagnóstico
           </h2>
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-[var(--color-muted)]">
-            La consulta puede comenzar por una evaluación de oftalmología
-            general o por una valoración especializada. En ambos casos se busca
-            comprender su condición visual con precisión, explicar los hallazgos
-            de forma clara y definir los siguientes pasos de acuerdo con sus
-            necesidades.
+            La consulta puede comenzar con una evaluación de oftalmología
+            general o con una valoración especializada. En ambos casos, el
+            objetivo es comprender su condición visual con precisión, explicar
+            los hallazgos de forma clara y definir el plan de manejo más
+            adecuado para sus necesidades.
           </p>
         </Reveal>
 
