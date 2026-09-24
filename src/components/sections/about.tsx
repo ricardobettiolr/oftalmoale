@@ -25,10 +25,10 @@ const congresses = [
   "Ponente en congresos nacionales de oftalmología en Venezuela",
   "Ponente en el Congreso Nacional de Oftalmología de Colombia (×2)",
   "Ponente en Facocaribe, Barranquilla (Colombia)",
-  "Ponente en el Precongreso Colombo-Venezolano de Catarata y Refractiva",
   "Ponente en Facoelche, España",
   "Ponente en congresos Panamericanos",
   "Ponente en ASCRS",
+  "Instructora de X.labs de cirugía de FACO y panelista en el Precongreso Colombo-Venezolano de Catarata y Refractiva",
   "Instructora de X.labs de cirugía de FACO y panelista en Facoextrema, Buenos Aires, Argentina",
 ];
 
