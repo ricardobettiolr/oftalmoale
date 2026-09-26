@@ -21,6 +21,21 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function resolveMailConfig() {
+  const host = process.env.SMTP_HOST?.trim() || "";
+  const portRaw = process.env.SMTP_PORT?.trim();
+  const port = portRaw ? Number(portRaw) : NaN;
+  const emailUser = process.env.EMAIL_USER?.trim() || "";
+  const emailPass = process.env.EMAIL_PASS?.trim() || "";
+  const to =
+    process.env.APPOINTMENT_TO_EMAIL?.trim() || "agenda@oftalmoale.com";
+
+  // 465 = implicit TLS; 587 = STARTTLS
+  const secure = port === 465;
+
+  return { host, port, secure, emailUser, emailPass, to };
+}
+
 export async function POST(request: Request) {
   let body: AppointmentBody;
 
@@ -58,9 +73,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const to = process.env.APPOINTMENT_TO_EMAIL || "oftalmoale@gmail.com";
-  const gmailUser = process.env.GMAIL_USER?.trim();
-  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD?.trim();
+  const { host, port, secure, emailUser, emailPass, to } = resolveMailConfig();
 
   const subject = `Nueva solicitud de cita — ${name}`;
   const text = [
@@ -75,32 +88,35 @@ export async function POST(request: Request) {
     reason,
   ].join("\n");
 
-  if (!gmailUser || !gmailAppPassword) {
-    console.info(
-      "[appointments] Mock send (GMAIL_USER / GMAIL_APP_PASSWORD not set)",
-      { to, subject, text }
-    );
+  if (!host || !Number.isFinite(port) || !emailUser || !emailPass) {
+    console.info("[appointments] Mock send (SMTP credentials not set)", {
+      to,
+      subject,
+      text,
+      host,
+      port,
+    });
     return NextResponse.json({
       ok: true,
       mock: true,
       message:
-        "Solicitud registrada en modo desarrollo (sin credenciales de Gmail).",
+        "Solicitud registrada en modo desarrollo (sin credenciales SMTP).",
     });
   }
 
   try {
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
+      host,
+      port,
+      secure,
       auth: {
-        user: gmailUser,
-        pass: gmailAppPassword,
+        user: emailUser,
+        pass: emailPass,
       },
     });
 
     await transporter.sendMail({
-      from: `"Oftalmoale" <${gmailUser}>`,
+      from: `"Oftalmoale" <${emailUser}>`,
       to,
       replyTo: email,
       subject,
@@ -109,7 +125,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("[appointments] Gmail SMTP error", error);
+    console.error("[appointments] SMTP error", error);
     return NextResponse.json(
       { error: "No pudimos enviar el correo. Intente más tarde." },
       { status: 502 }

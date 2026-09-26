@@ -14,40 +14,36 @@ npm run dev -- --hostname 127.0.0.1 --port 43127
 
 Abra [http://127.0.0.1:43127](http://127.0.0.1:43127).
 
-Sin `GMAIL_USER` / `GMAIL_APP_PASSWORD`, el formulario de citas funciona en modo mock (registra la solicitud en la consola del servidor).
+Sin credenciales SMTP, el formulario de citas funciona en modo mock (registra la solicitud en la consola del servidor).
 
 ## Variables de entorno
 
 | Variable | Requerida | Descripción |
 |---|---|---|
-| `APPOINTMENT_TO_EMAIL` | Recomendada | Destino de las citas. Por defecto: `oftalmoale@gmail.com` |
-| `GMAIL_USER` | Producción | Cuenta Gmail que envía (p. ej. `oftalmoale@gmail.com`) |
-| `GMAIL_APP_PASSWORD` | Producción | Contraseña de aplicación de Google (no la contraseña normal) |
+| `SMTP_HOST` | Producción | Servidor SMTP (Namecheap: `mail.privateemail.com`) |
+| `SMTP_PORT` | Producción | `465` (SSL) o `587` (STARTTLS) |
+| `EMAIL_USER` | Producción | Remitente / usuario SMTP (`agenda@oftalmoale.com`) |
+| `EMAIL_PASS` | Producción | Contraseña del buzón |
+| `APPOINTMENT_TO_EMAIL` | Recomendada | Destino de las citas. Por defecto: `agenda@oftalmoale.com` |
 
-Ejemplo `.env.local`:
+> Migración: las variables antiguas `GMAIL_USER` / `GMAIL_APP_PASSWORD` ya no se usan. Configure SMTP de Namecheap Private Email en Vercel.
+
+Ejemplo `.env.local` / Vercel:
 
 ```env
-APPOINTMENT_TO_EMAIL=oftalmoale@gmail.com
-GMAIL_USER=oftalmoale@gmail.com
-GMAIL_APP_PASSWORD=
+SMTP_HOST=mail.privateemail.com
+SMTP_PORT=465
+EMAIL_USER=agenda@oftalmoale.com
+EMAIL_PASS=
+APPOINTMENT_TO_EMAIL=agenda@oftalmoale.com
 ```
-
-### Configurar Gmail (español)
-
-1. En la [cuenta de Google](https://myaccount.google.com/) → **Seguridad** → active **Verificación en 2 pasos**.
-2. En **Contraseñas de aplicaciones** → cree una para **Correo** / “Mail”.
-3. En Vercel, configure `GMAIL_USER`, `GMAIL_APP_PASSWORD` y `APPOINTMENT_TO_EMAIL`.
-4. Vuelva a desplegar el proyecto.
 
 ## Desplegar en Vercel
 
-1. En [vercel.com/new](https://vercel.com/new), **Import** el repositorio `ricardobettiolr/oftalmoale`.
-2. Framework preset: **Next.js** (autodetectado). Root Directory: `.` (raíz del repo).
-3. En **Environment Variables**, agregue:
-   - `APPOINTMENT_TO_EMAIL` = `oftalmoale@gmail.com`
-   - `GMAIL_USER` = `oftalmoale@gmail.com`
-   - `GMAIL_APP_PASSWORD` = la contraseña de aplicación de Google
-4. Deploy. Cada push a `main` vuelve a desplegar.
+1. Import el repositorio `ricardobettiolr/oftalmoale`.
+2. Framework: **Next.js**. Root Directory: `.`
+3. Environment Variables: las cinco de la tabla arriba.
+4. Redeploy after saving env vars.
 
 ## Scripts
 
@@ -58,4 +54,4 @@ GMAIL_APP_PASSWORD=
 
 ## Contenido
 
-Fotos del consultorio en `public/assets/clinic/`. Logo oficial en `public/assets/oftalmoale-logo.png`.
+Fotos del consultorio en `public/assets/clinic/`. Logo en `public/assets/logo-v4.png` / `logo-on-dark.png`.
