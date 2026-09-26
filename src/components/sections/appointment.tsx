@@ -112,7 +112,7 @@ export function Appointment() {
           </address>
           <p className="mt-6 max-w-md text-sm text-[var(--color-muted)]">
             Las solicitudes serán atendidas a través de{" "}
-            <span className="text-[var(--color-ink)]">oftalmoale@gmail.com</span>.
+            <span className="text-[var(--color-ink)]">agenda@oftalmoale.com</span>.
           </p>
         </Reveal>
 
