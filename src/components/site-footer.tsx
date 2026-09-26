@@ -14,10 +14,10 @@ export function SiteFooter() {
               Córnea
             </p>
             <a
-              href="mailto:oftalmoale@gmail.com"
+              href="mailto:agenda@oftalmoale.com"
               className="mt-3 inline-block text-white underline-offset-4 hover:underline"
             >
-              oftalmoale@gmail.com
+              agenda@oftalmoale.com
             </a>
             <a
               href="tel:+584147204850"
