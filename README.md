@@ -25,6 +25,8 @@ Sin credenciales SMTP, el formulario de citas funciona en modo mock (registra la
 | `EMAIL_USER` | Producción | Remitente / usuario SMTP (`agenda@oftalmoale.com`) |
 | `EMAIL_PASS` | Producción | Contraseña del buzón |
 | `APPOINTMENT_TO_EMAIL` | Recomendada | Destino de las citas. Por defecto: `agenda@oftalmoale.com` |
+| `NEXT_PUBLIC_SUPABASE_URL` | Opcional | URL del proyecto Supabase. Si falta, el formulario solo envía el correo y `/sistema` queda desactivado |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Opcional | Clave anon/publishable (pública por diseño; los datos los protege el RLS de Supabase) |
 
 > Migración: las variables antiguas `GMAIL_USER` / `GMAIL_APP_PASSWORD` ya no se usan. Configure SMTP de Namecheap Private Email en Vercel.
 
@@ -42,8 +44,12 @@ APPOINTMENT_TO_EMAIL=agenda@oftalmoale.com
 
 1. Import el repositorio `ricardobettiolr/oftalmoale`.
 2. Framework: **Next.js**. Root Directory: `.`
-3. Environment Variables: las cinco de la tabla arriba.
+3. Environment Variables: las cinco primeras de la tabla arriba (y, si usa el sistema, las dos de Supabase).
 4. Redeploy after saving env vars.
+
+## Sistema del consultorio
+
+En `/sistema` (con login) vive el sistema de gestión: pacientes, consultas, cirugías, agenda e informes. Es parte de esta misma app y del mismo despliegue en Vercel; el sitio público no cambia. Cuando las dos variables de Supabase están definidas, cada solicitud del formulario de citas también queda registrada en la agenda del sistema. Guía de puesta en marcha: [`docs/sistema.md`](docs/sistema.md).
 
 ## Scripts
 

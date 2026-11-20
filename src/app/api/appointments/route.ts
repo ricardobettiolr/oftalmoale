@@ -36,6 +36,67 @@ function resolveMailConfig() {
   return { host, port, secure, emailUser, emailPass, to };
 }
 
+type AppointmentData = {
+  name: string;
+  email: string;
+  phone: string;
+  preferredDate: string;
+  reason: string;
+};
+
+/**
+ * Guarda la solicitud en la agenda del sistema del consultorio
+ * (Supabase, tabla `citas`, ver /sistema).
+ *
+ * Usa la clave anon: la política RLS `citas_solicitud_publica` solo permite
+ * CREAR solicitudes web, nada más. Devuelve true si quedó guardada y false si
+ * Supabase no está configurado o la petición falló (el correo sigue su curso).
+ */
+async function saveToSistema(data: AppointmentData) {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/\/+$/, "");
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
+  if (!url || !key) return false;
+
+  const headers: Record<string, string> = {
+    apikey: key,
+    "Content-Type": "application/json",
+    Prefer: "return=minimal",
+  };
+  // Las claves anon clásicas son JWT; las "publishable" nuevas no lo son.
+  if (key.startsWith("eyJ")) headers.Authorization = `Bearer ${key}`;
+
+  try {
+    const response = await fetch(`${url}/rest/v1/citas`, {
+      method: "POST",
+      headers,
+      // Los recortes coinciden con los límites de la política RLS.
+      body: JSON.stringify({
+        solicitante_nombre: data.name.slice(0, 120),
+        solicitante_email: data.email.slice(0, 120),
+        solicitante_telefono: data.phone.slice(0, 40),
+        fecha_preferida: data.preferredDate || null,
+        motivo: data.reason.slice(0, 1000),
+        estado: "solicitada",
+        origen: "web",
+      }),
+      signal: AbortSignal.timeout(8000),
+    });
+
+    if (!response.ok) {
+      console.error(
+        "[appointments] Supabase error",
+        response.status,
+        await response.text()
+      );
+      return false;
+    }
+    return true;
+  } catch (error) {
+    console.error("[appointments] Supabase request failed", error);
+    return false;
+  }
+}
+
 export async function POST(request: Request) {
   let body: AppointmentBody;
 
@@ -75,6 +136,14 @@ export async function POST(request: Request) {
 
   const { host, port, secure, emailUser, emailPass, to } = resolveMailConfig();
 
+  const saved = await saveToSistema({
+    name,
+    email,
+    phone,
+    preferredDate,
+    reason,
+  });
+
   const subject = `Nueva solicitud de cita — ${name}`;
   const text = [
     "Nueva solicitud de cita desde el sitio Oftalmoale",
@@ -99,6 +168,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       ok: true,
       mock: true,
+      saved,
       message:
         "Solicitud registrada en modo desarrollo (sin credenciales SMTP).",
     });
@@ -126,6 +196,9 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("[appointments] SMTP error", error);
+    // Si la solicitud ya quedó en la agenda del sistema, no se pierde:
+    // la paciente no necesita ver un error por el correo.
+    if (saved) return NextResponse.json({ ok: true });
     return NextResponse.json(
       { error: "No pudimos enviar el correo. Intente más tarde." },
       { status: 502 }

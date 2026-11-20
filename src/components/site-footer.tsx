@@ -57,6 +57,17 @@ export function SiteFooter() {
           </address>
         </div>
       </div>
+      <div className="border-t border-white/10">
+        <div className="section-pad mx-auto flex max-w-6xl justify-end py-4 text-xs">
+          <Link
+            href="/sistema"
+            prefetch={false}
+            className="text-white/50 underline-offset-4 hover:text-white hover:underline"
+          >
+            Acceso consultorio
+          </Link>
+        </div>
+      </div>
     </footer>
   );
 }
