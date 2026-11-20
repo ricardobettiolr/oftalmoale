@@ -55,7 +55,7 @@ export default async function Inicio() {
             <ul className="divide-y divide-slate-100">
               {citasHoy.data.map((c) => (
                 <li key={c.id} className="flex items-baseline gap-3 py-2.5 text-sm">
-                  <span className="w-14 font-semibold text-sky-800">{hora(c.fecha_hora)}</span>
+                  <span className="w-20 shrink-0 whitespace-nowrap font-semibold text-sky-800">{hora(c.fecha_hora)}</span>
                   <span className="flex-1">
                     {c.pacientes ? (
                       <Link href={`/sistema/pacientes/${c.pacientes.id}`} className="font-medium text-slate-900 hover:underline">
@@ -64,7 +64,7 @@ export default async function Inicio() {
                     ) : (
                       <span className="font-medium text-slate-900">{c.solicitante_nombre ?? "Sin nombre"}</span>
                     )}
-                    <span className="text-slate-500"> · {c.motivo ?? "sin motivo"}</span>
+                    <span className="text-slate-600"> · {c.motivo ?? "sin motivo"}</span>
                   </span>
                   {doctora && c.paciente_id && (
                     <Link href={`/sistema/pacientes/${c.paciente_id}/consulta/nueva?cita=${c.id}`} className="text-sky-800 hover:underline">
@@ -80,14 +80,14 @@ export default async function Inicio() {
         <Card title="Pendientes">
           <ul className="space-y-3 text-sm">
             <li className="flex items-center justify-between">
-              <span className="text-slate-600">Solicitudes de cita por confirmar</span>
-              <Link href="/sistema/agenda" className={`rounded-full px-3 py-0.5 font-semibold ${pendientes > 0 ? "bg-amber-100 text-amber-800" : "bg-slate-100 text-slate-500"}`}>
+              <span className="text-slate-700">Solicitudes de cita por confirmar</span>
+              <Link href="/sistema/agenda" className={`rounded-full px-3 py-0.5 font-semibold ${pendientes > 0 ? "bg-amber-100 text-amber-800" : "bg-slate-100 text-slate-600"}`}>
                 {pendientes}
               </Link>
             </li>
             {doctora && (
               <li className="flex items-center justify-between">
-                <span className="text-slate-600">Pacientes en postoperatorio</span>
+                <span className="text-slate-700">Pacientes en postoperatorio</span>
                 <Link href="/sistema/cirugias?estado=postoperatorio" className="rounded-full bg-teal-100 px-3 py-0.5 font-semibold text-teal-800">
                   {postop.count ?? 0}
                 </Link>
@@ -107,7 +107,7 @@ export default async function Inicio() {
                     <Link href={`/sistema/cirugias/${c.id}`} className="flex items-baseline gap-4 py-2.5 text-sm hover:bg-slate-50">
                       <span className="w-24 font-semibold text-sky-800">{fecha(c.fecha_cirugia)}</span>
                       <span className="flex-1 font-medium text-slate-900">{nombreCompleto(c.pacientes)}</span>
-                      <span className="text-slate-500">
+                      <span className="text-slate-600">
                         {c.procedimiento} · {c.ojo}
                       </span>
                     </Link>

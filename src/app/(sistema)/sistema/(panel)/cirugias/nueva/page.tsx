@@ -38,7 +38,7 @@ export default async function NuevaCirugia({ searchParams }: { searchParams: Pro
             </datalist>
             <Area label="Indicación quirúrgica" name="indicacion" className="sm:col-span-2" placeholder="Catarata nuclear grado III con AV 20/200…" />
           </div>
-          <p className="mt-3 text-xs text-slate-500">Después podrás cargar biometría, LIO, fecha, nota operatoria y controles.</p>
+          <p className="mt-3 text-xs text-slate-600">Después podrás cargar biometría, LIO, fecha, nota operatoria y controles.</p>
           <div className="mt-5 flex gap-2">
             <button className={btn}>Crear cirugía</button>
             <Link href={`/sistema/pacientes/${p.id}`} className={btnSec}>

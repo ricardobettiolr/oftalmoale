@@ -39,8 +39,8 @@ export default function ConsultaForm({
           <FilaOjos label="Refracción" nameOd="refraccion_od" nameOi="refraccion_oi" od={c.refraccion_od} oi={c.refraccion_oi} placeholder="+1.00 -0.50 x 90" />
           <FilaOjos label="PIO (mmHg)" nameOd="pio_od" nameOi="pio_oi" od={c.pio_od} oi={c.pio_oi} type="number" step="0.5" />
           <div className="grid grid-cols-[8.5rem_1fr] items-center gap-2">
-            <span className="text-xs font-medium text-slate-600">Método de PIO</span>
-            <input name="pio_metodo" defaultValue={c.pio_metodo ?? ""} placeholder="Goldmann, neumotonómetro…" className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600" />
+            <span className="text-xs font-medium text-slate-700">Método de PIO</span>
+            <input name="pio_metodo" defaultValue={c.pio_metodo ?? ""} placeholder="Goldmann, neumotonómetro…" className="w-full rounded-md border border-slate-400 bg-white px-3 py-2 text-sm focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600" />
           </div>
         </div>
       </Card>

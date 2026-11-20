@@ -60,12 +60,12 @@ export default async function Agenda() {
               <li key={s.id} className="space-y-2 py-3">
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <span className="font-medium text-slate-900">{s.pacientes ? nombreCompleto(s.pacientes) : (s.solicitante_nombre ?? "Sin nombre")}</span>
-                  <span className="text-sm text-slate-500">{[s.solicitante_telefono, s.solicitante_email].filter(Boolean).join(" · ")}</span>
+                  <span className="text-sm text-slate-600">{[s.solicitante_telefono, s.solicitante_email].filter(Boolean).join(" · ")}</span>
                   <Badge valor="solicitada" texto={etiqueta(ORIGENES_CITA, s.origen)} />
                 </div>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-700">
                   {s.motivo ?? "Sin motivo indicado"}
-                  {s.fecha_preferida && <span className="text-slate-400"> · prefiere el {fecha(s.fecha_preferida)}</span>}
+                  {s.fecha_preferida && <span className="text-slate-500"> · prefiere el {fecha(s.fecha_preferida)}</span>}
                 </p>
                 <div className="flex flex-wrap items-center gap-2">
                   <form action={confirmarCita} className="flex flex-wrap items-center gap-2">
@@ -98,10 +98,10 @@ export default async function Agenda() {
                 <h3 className="mb-1 text-sm font-semibold capitalize text-slate-700">
                   {diaSemana(dia)} {fecha(dia)}
                 </h3>
-                <ul className="divide-y divide-slate-100 rounded-md border border-slate-200">
+                <ul className="divide-y divide-slate-100 rounded-md border border-slate-300">
                   {lista.map((c) => (
                     <li key={c.id} className="flex flex-wrap items-center gap-x-4 gap-y-2 px-3 py-2.5">
-                      <span className="w-14 text-sm font-semibold text-sky-800">{hora(c.fecha_hora)}</span>
+                      <span className="w-20 shrink-0 whitespace-nowrap text-sm font-semibold text-sky-800">{hora(c.fecha_hora)}</span>
                       <span className="min-w-40 flex-1 text-sm">
                         {c.pacientes ? (
                           <Link href={`/sistema/pacientes/${c.pacientes.id}`} className="font-medium text-slate-900 hover:underline">
@@ -110,7 +110,7 @@ export default async function Agenda() {
                         ) : (
                           <span className="font-medium text-slate-900">{c.solicitante_nombre ?? "Sin nombre"}</span>
                         )}
-                        <span className="text-slate-500"> · {c.motivo ?? "sin motivo"}</span>
+                        <span className="text-slate-600"> · {c.motivo ?? "sin motivo"}</span>
                       </span>
                       <div className="flex flex-wrap gap-1.5">
                         {doctora && c.paciente_id && (

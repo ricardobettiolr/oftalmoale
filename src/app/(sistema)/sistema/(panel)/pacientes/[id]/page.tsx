@@ -80,7 +80,7 @@ export default async function FichaPaciente({ params }: { params: Promise<{ id: 
                   <li key={c.id}>
                     <Link href={`/sistema/consultas/${c.id}`} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-2.5 hover:bg-slate-50">
                       <span className="w-24 text-sm font-medium text-slate-700">{fecha(c.fecha)}</span>
-                      <span className="w-48 text-sm text-slate-500">{etiqueta(TIPOS_CONSULTA, c.tipo)}</span>
+                      <span className="w-48 text-sm text-slate-600">{etiqueta(TIPOS_CONSULTA, c.tipo)}</span>
                       <span className="flex-1 text-sm text-slate-900">{c.diagnostico ?? "Sin diagnóstico"}</span>
                     </Link>
                   </li>
@@ -100,7 +100,7 @@ export default async function FichaPaciente({ params }: { params: Promise<{ id: 
                   <li key={c.id}>
                     <Link href={`/sistema/cirugias/${c.id}`} className="flex flex-wrap items-center gap-x-4 gap-y-1 py-2.5 hover:bg-slate-50">
                       <span className="w-24 text-sm font-medium text-slate-700">{fecha(c.fecha_cirugia)}</span>
-                      <span className="w-10 text-sm text-slate-500">{c.ojo}</span>
+                      <span className="w-10 text-sm text-slate-600">{c.ojo}</span>
                       <span className="flex-1 text-sm text-slate-900">{c.procedimiento}</span>
                       <Badge valor={c.estado} texto={etiqueta(ESTADOS_CIRUGIA, c.estado)} />
                     </Link>
@@ -119,7 +119,7 @@ export default async function FichaPaciente({ params }: { params: Promise<{ id: 
               {citas.data.map((c) => (
                 <li key={c.id} className="flex flex-wrap items-center gap-x-4 gap-y-1 py-2.5 text-sm">
                   <span className="w-40 font-medium text-slate-700">{c.fecha_hora ? fechaHora(c.fecha_hora) : fecha(c.fecha_preferida)}</span>
-                  <span className="flex-1 text-slate-600">{c.motivo ?? "—"}</span>
+                  <span className="flex-1 text-slate-700">{c.motivo ?? "—"}</span>
                   <Badge valor={c.estado} texto={etiqueta(ESTADOS_CITA, c.estado)} />
                 </li>
               ))}

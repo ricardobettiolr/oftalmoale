@@ -9,7 +9,7 @@ import PrintButton from "@/sistema/components/PrintButton";
 function Bloque({ titulo, children }: { titulo: string; children: React.ReactNode }) {
   return (
     <section className="mb-4">
-      <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-600">{titulo}</h3>
+      <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-700">{titulo}</h3>
       <div className="whitespace-pre-wrap text-sm leading-relaxed text-slate-900">{children}</div>
     </section>
   );
@@ -27,7 +27,7 @@ export default async function ImprimirCirugia({ params }: { params: Promise<{ id
   return (
     <>
       <div className="no-print mx-auto mb-4 flex max-w-[800px] items-center gap-2 px-4">
-        <Link href={`/sistema/cirugias/${id}`} className="text-sm text-slate-600 underline">
+        <Link href={`/sistema/cirugias/${id}`} className="text-sm text-slate-700 underline">
           ← Volver
         </Link>
         <span className="flex-1" />
@@ -38,7 +38,7 @@ export default async function ImprimirCirugia({ params }: { params: Promise<{ id
         <Membrete />
         <h2 className="mb-4 text-center text-base font-semibold uppercase tracking-wide text-slate-800">Informe quirúrgico</h2>
 
-        <div className="mb-5 grid grid-cols-2 gap-x-6 gap-y-1 rounded border border-slate-300 p-3 text-sm">
+        <div className="mb-5 grid grid-cols-2 gap-x-6 gap-y-1 rounded border border-slate-400 p-3 text-sm">
           <p><span className="font-medium">Paciente:</span> {nombreCompleto(p)}</p>
           <p><span className="font-medium">Fecha de cirugía:</span> {fecha(c.fecha_cirugia)}</p>
           <p><span className="font-medium">C.I.:</span> {p.cedula ?? "—"}</p>

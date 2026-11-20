@@ -1,11 +1,25 @@
 @import "tailwindcss";
 
+/* Azul de la marca Oftalmoale (reemplaza la escala sky solo dentro del sistema) */
+@theme {
+  --color-sky-50: #eef5fc;
+  --color-sky-100: #dbe9f8;
+  --color-sky-200: #bcd6f0;
+  --color-sky-300: #8db8e3;
+  --color-sky-400: #5593d2;
+  --color-sky-500: #2c80d6;
+  --color-sky-600: #1769c5;
+  --color-sky-700: #11549f;
+  --color-sky-800: #0b3b7a;
+  --color-sky-900: #0a2348;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: #f8fafc;
+  background: #eaf1f9;
   color: #0f172a;
 }
 
