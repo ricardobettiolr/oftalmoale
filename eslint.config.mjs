@@ -12,8 +12,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // App independiente del consultorio (tiene su propio despliegue).
-    "sistema/**",
   ]),
 ]);
 

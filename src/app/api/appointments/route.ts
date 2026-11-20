@@ -53,8 +53,8 @@ type AppointmentData = {
  * Supabase no está configurado o la petición falló (el correo sigue su curso).
  */
 async function saveToSistema(data: AppointmentData) {
-  const url = process.env.SUPABASE_URL?.trim().replace(/\/+$/, "");
-  const key = process.env.SUPABASE_ANON_KEY?.trim();
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/\/+$/, "");
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();
   if (!url || !key) return false;
 
   const headers: Record<string, string> = {
