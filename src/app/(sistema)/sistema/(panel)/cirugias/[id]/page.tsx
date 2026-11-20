@@ -108,19 +108,19 @@ export default async function DetalleCirugia({ params }: { params: Promise<{ id:
                   <div className="flex flex-wrap gap-x-4 font-medium text-slate-800">
                     <span>{fecha(k.fecha)}</span>
                     {dia !== null && <span className="text-sky-800">Día {dia} postop</span>}
-                    <span className="text-slate-500">AV: {k.av ?? "—"}</span>
-                    <span className="text-slate-500">PIO: {k.pio ?? "—"}</span>
+                    <span className="text-slate-600">AV: {k.av ?? "—"}</span>
+                    <span className="text-slate-600">PIO: {k.pio ?? "—"}</span>
                   </div>
                   {k.hallazgos && <p className="whitespace-pre-wrap text-slate-700">{k.hallazgos}</p>}
-                  {k.indicaciones && <p className="whitespace-pre-wrap text-slate-500">Indicaciones: {k.indicaciones}</p>}
-                  {k.proximo_control && <p className="text-slate-500">Próximo control: {fecha(k.proximo_control)}</p>}
+                  {k.indicaciones && <p className="whitespace-pre-wrap text-slate-600">Indicaciones: {k.indicaciones}</p>}
+                  {k.proximo_control && <p className="text-slate-600">Próximo control: {fecha(k.proximo_control)}</p>}
                 </li>
               );
             })}
           </ul>
         )}
 
-        <form action={agregarControl} className="rounded-md border border-slate-200 bg-slate-50 p-4">
+        <form action={agregarControl} className="rounded-md border border-slate-300 bg-slate-50 p-4">
           <input type="hidden" name="cirugia_id" value={c.id} />
           <h3 className="mb-3 text-sm font-semibold text-slate-700">Registrar control</h3>
           <div className="grid gap-3 sm:grid-cols-4">

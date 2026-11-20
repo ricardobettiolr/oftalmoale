@@ -1,13 +1,13 @@
 import type { ReactNode } from "react";
 
 export const input =
-  "w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600";
+  "w-full rounded-md border border-slate-400 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-500 focus:border-sky-600 focus:outline-none focus:ring-1 focus:ring-sky-600";
 export const btn =
   "inline-flex items-center justify-center rounded-md bg-sky-700 px-4 py-2 text-sm font-medium text-white hover:bg-sky-800 cursor-pointer";
 export const btnSec =
-  "inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 cursor-pointer";
+  "inline-flex items-center justify-center rounded-md border border-slate-400 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-sky-50 cursor-pointer";
 export const btnMini =
-  "inline-flex items-center justify-center rounded border border-slate-300 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50 cursor-pointer";
+  "inline-flex items-center justify-center rounded border border-slate-400 bg-white px-2.5 py-1 text-xs font-medium text-slate-700 hover:bg-sky-50 cursor-pointer";
 
 export function PageHeader({
   title,
@@ -22,7 +22,7 @@ export function PageHeader({
     <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
       <div>
         <h1 className="text-2xl font-semibold text-slate-900">{title}</h1>
-        {subtitle && <p className="mt-1 text-sm text-slate-500">{subtitle}</p>}
+        {subtitle && <p className="mt-1 text-sm text-slate-600">{subtitle}</p>}
       </div>
       <div className="flex flex-wrap gap-2">{children}</div>
     </div>
@@ -41,7 +41,7 @@ export function Card({
   className?: string;
 }) {
   return (
-    <section className={`rounded-lg border border-slate-200 bg-white p-5 shadow-sm ${className}`}>
+    <section className={`rounded-lg border border-slate-300 bg-white p-5 shadow-sm ${className}`}>
       {(title || action) && (
         <div className="mb-4 flex items-center justify-between gap-3">
           {title && <h2 className="text-base font-semibold text-slate-800">{title}</h2>}
@@ -68,7 +68,7 @@ type CampoProps = {
 export function Campo({ label, name, defaultValue, type = "text", required, placeholder, list, step, className = "" }: CampoProps) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-1 block text-xs font-medium text-slate-600">
+      <span className="mb-1 block text-xs font-medium text-slate-700">
         {label}
         {required && " *"}
       </span>
@@ -103,7 +103,7 @@ export function Area({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-1 block text-xs font-medium text-slate-600">{label}</span>
+      <span className="mb-1 block text-xs font-medium text-slate-700">{label}</span>
       <textarea className={input} name={name} rows={rows} defaultValue={defaultValue ?? ""} placeholder={placeholder} />
     </label>
   );
@@ -128,7 +128,7 @@ export function Seleccion({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-1 block text-xs font-medium text-slate-600">
+      <span className="mb-1 block text-xs font-medium text-slate-700">
         {label}
         {required && " *"}
       </span>
@@ -166,7 +166,7 @@ export function FilaOjos({
 }) {
   return (
     <div className="grid grid-cols-[8.5rem_1fr_1fr] items-center gap-2">
-      <span className="text-xs font-medium text-slate-600">{label}</span>
+      <span className="text-xs font-medium text-slate-700">{label}</span>
       <input className={input} name={nameOd} type={type} step={step} defaultValue={od ?? ""} placeholder={placeholder} aria-label={`${label} OD`} />
       <input className={input} name={nameOi} type={type} step={step} defaultValue={oi ?? ""} placeholder={placeholder} aria-label={`${label} OI`} />
     </div>
@@ -175,7 +175,7 @@ export function FilaOjos({
 
 export function CabeceraOjos() {
   return (
-    <div className="mb-2 grid grid-cols-[8.5rem_1fr_1fr] gap-2 text-center text-xs font-semibold text-slate-500">
+    <div className="mb-2 grid grid-cols-[8.5rem_1fr_1fr] gap-2 text-center text-xs font-semibold text-slate-600">
       <span />
       <span>OD · ojo derecho</span>
       <span>OI · ojo izquierdo</span>
@@ -187,14 +187,14 @@ const colores: Record<string, string> = {
   solicitada: "bg-amber-100 text-amber-800",
   confirmada: "bg-sky-100 text-sky-800",
   atendida: "bg-emerald-100 text-emerald-800",
-  cancelada: "bg-slate-200 text-slate-600",
+  cancelada: "bg-slate-200 text-slate-700",
   no_asistio: "bg-rose-100 text-rose-800",
   indicada: "bg-amber-100 text-amber-800",
   preoperatorio: "bg-violet-100 text-violet-800",
   programada: "bg-sky-100 text-sky-800",
   operada: "bg-emerald-100 text-emerald-800",
   postoperatorio: "bg-teal-100 text-teal-800",
-  cerrada: "bg-slate-200 text-slate-600",
+  cerrada: "bg-slate-200 text-slate-700",
 };
 
 export function Badge({ valor, texto }: { valor: string; texto: string }) {
@@ -206,5 +206,5 @@ export function Badge({ valor, texto }: { valor: string; texto: string }) {
 }
 
 export function Vacio({ children }: { children: ReactNode }) {
-  return <p className="py-6 text-center text-sm text-slate-400">{children}</p>;
+  return <p className="py-6 text-center text-sm text-slate-500">{children}</p>;
 }

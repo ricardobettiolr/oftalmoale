@@ -32,7 +32,7 @@ export default async function Cirugias({ searchParams }: { searchParams: Promise
           <Link
             key={f.v}
             href={f.v ? `/sistema/cirugias?estado=${f.v}` : "/sistema/cirugias"}
-            className={`rounded-full px-3 py-1 text-sm ${activo === f.v ? "bg-sky-700 text-white" : "border border-slate-300 bg-white text-slate-600 hover:bg-slate-50"}`}
+            className={`rounded-full px-3 py-1 text-sm ${activo === f.v ? "bg-sky-700 text-white" : "border border-slate-400 bg-white text-slate-700 hover:bg-slate-50"}`}
           >
             {f.l}
           </Link>
@@ -45,7 +45,7 @@ export default async function Cirugias({ searchParams }: { searchParams: Promise
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-slate-200 text-left text-xs text-slate-500">
+              <tr className="border-b border-slate-300 text-left text-xs text-slate-600">
                 <th className="py-2 pr-3 font-medium">Fecha</th>
                 <th className="py-2 pr-3 font-medium">Paciente</th>
                 <th className="py-2 pr-3 font-medium">Ojo</th>
@@ -62,8 +62,8 @@ export default async function Cirugias({ searchParams }: { searchParams: Promise
                       {nombreCompleto(c.pacientes)}
                     </Link>
                   </td>
-                  <td className="py-2 pr-3 text-slate-600">{c.ojo}</td>
-                  <td className="py-2 pr-3 text-slate-600">{c.procedimiento}</td>
+                  <td className="py-2 pr-3 text-slate-700">{c.ojo}</td>
+                  <td className="py-2 pr-3 text-slate-700">{c.procedimiento}</td>
                   <td className="py-2">
                     <Badge valor={c.estado} texto={etiqueta(ESTADOS_CIRUGIA, c.estado)} />
                   </td>

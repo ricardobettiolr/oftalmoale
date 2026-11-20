@@ -18,7 +18,7 @@ export default async function Equipo() {
             <li key={p.id} className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3 text-sm">
               <span className="flex-1">
                 <span className="font-medium text-slate-900">{p.nombre}</span>
-                <span className="text-slate-500"> · {p.rol === "doctora" ? "Doctora" : "Secretaria"} · desde {fecha(p.created_at)}</span>
+                <span className="text-slate-600"> · {p.rol === "doctora" ? "Doctora" : "Secretaria"} · desde {fecha(p.created_at)}</span>
               </span>
               <span className={p.activo ? "text-emerald-700" : "text-amber-700"}>{p.activo ? "Activo" : "Pendiente de activar"}</span>
               {p.id !== yo.id && (

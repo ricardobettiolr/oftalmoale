@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { CLINICA } from "@/sistema/lib/clinic";
+import { BrandLogo } from "@/components/brand-logo";
 import { cerrarSesion } from "@/sistema/lib/sesion";
 import type { Row } from "@/sistema/lib/format";
+import NavLinks from "./NavLinks";
 
 export default function Nav({ perfil }: { perfil: Row }) {
   const doctora = perfil.rol === "doctora";
@@ -13,21 +14,17 @@ export default function Nav({ perfil }: { perfil: Row }) {
     ...(doctora ? [{ href: "/sistema/equipo", label: "Equipo" }] : []),
   ];
   return (
-    <header className="no-print border-b border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
-        <Link href="/sistema" className="text-lg font-semibold text-sky-800">
-          {CLINICA.nombre}
+    <header className="no-print border-b-4 border-sky-500 bg-sky-800 shadow-md">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-3 px-4 py-3">
+        <Link href="/sistema" aria-label="Oftalmoale · Inicio" className="order-1 shrink-0">
+          <BrandLogo variant="onDark" priority className="h-9 sm:h-10" />
         </Link>
-        <nav className="flex flex-1 flex-wrap gap-1">
-          {items.map((i) => (
-            <Link key={i.href} href={i.href} className="rounded-md px-3 py-1.5 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900">
-              {i.label}
-            </Link>
-          ))}
-        </nav>
-        <form action={cerrarSesion} className="flex items-center gap-3 text-sm text-slate-500">
-          <span>{perfil.nombre}</span>
-          <button className="rounded-md border border-slate-300 px-3 py-1 text-slate-600 hover:bg-slate-50">Salir</button>
+        <NavLinks items={items} />
+        <form action={cerrarSesion} className="order-2 ml-auto flex items-center gap-3 text-sm text-sky-50 md:order-3 md:ml-0">
+          <span className="font-medium">{perfil.nombre}</span>
+          <button className="cursor-pointer rounded-md border border-white/60 px-3 py-1 font-medium text-white hover:bg-white hover:text-sky-900">
+            Salir
+          </button>
         </form>
       </div>
     </header>

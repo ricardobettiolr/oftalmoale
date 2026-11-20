@@ -39,7 +39,7 @@ export default async function Pacientes({ searchParams }: { searchParams: Promis
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-slate-200 text-left text-xs text-slate-500">
+              <tr className="border-b border-slate-300 text-left text-xs text-slate-600">
                 <th className="py-2 pr-3 font-medium">Paciente</th>
                 <th className="py-2 pr-3 font-medium">Cédula</th>
                 <th className="py-2 pr-3 font-medium">Edad</th>
@@ -54,9 +54,9 @@ export default async function Pacientes({ searchParams }: { searchParams: Promis
                       {p.apellidos}, {p.nombres}
                     </Link>
                   </td>
-                  <td className="py-2 pr-3 text-slate-600">{p.cedula ?? "—"}</td>
-                  <td className="py-2 pr-3 text-slate-600">{edad(p.fecha_nacimiento)}</td>
-                  <td className="py-2 text-slate-600">{p.telefono ?? "—"}</td>
+                  <td className="py-2 pr-3 text-slate-700">{p.cedula ?? "—"}</td>
+                  <td className="py-2 pr-3 text-slate-700">{edad(p.fecha_nacimiento)}</td>
+                  <td className="py-2 text-slate-700">{p.telefono ?? "—"}</td>
                 </tr>
               ))}
             </tbody>

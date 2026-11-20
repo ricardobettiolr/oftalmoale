@@ -17,23 +17,23 @@ export default function ExamenTabla({ c }: { c: Row }) {
     ...FONDO_CAMPOS.map((x): Fila => [x.label, c.fondo_od?.[x.key], c.fondo_oi?.[x.key], true]),
   ];
   const visibles = filas.filter(([, a, b]) => lleno(a) || lleno(b));
-  if (visibles.length === 0) return <p className="text-sm text-slate-400">Sin hallazgos registrados.</p>;
+  if (visibles.length === 0) return <p className="text-sm text-slate-500">Sin hallazgos registrados.</p>;
 
   return (
     <table className="w-full border-collapse text-sm">
       <thead>
-        <tr className="bg-slate-100 text-left text-xs text-slate-600 print:bg-slate-100">
-          <th className="w-1/3 border border-slate-300 px-2 py-1 font-semibold">Examen</th>
-          <th className="border border-slate-300 px-2 py-1 font-semibold">OD</th>
-          <th className="border border-slate-300 px-2 py-1 font-semibold">OI</th>
+        <tr className="bg-slate-100 text-left text-xs text-slate-700 print:bg-slate-100">
+          <th className="w-1/3 border border-slate-400 px-2 py-1 font-semibold">Examen</th>
+          <th className="border border-slate-400 px-2 py-1 font-semibold">OD</th>
+          <th className="border border-slate-400 px-2 py-1 font-semibold">OI</th>
         </tr>
       </thead>
       <tbody>
         {visibles.map(([label, od, oi]) => (
           <tr key={label} className="align-top">
-            <td className="border border-slate-300 px-2 py-1 font-medium text-slate-700">{label}</td>
-            <td className="border border-slate-300 px-2 py-1 whitespace-pre-wrap">{mostrar(od)}</td>
-            <td className="border border-slate-300 px-2 py-1 whitespace-pre-wrap">{mostrar(oi)}</td>
+            <td className="border border-slate-400 px-2 py-1 font-medium text-slate-700">{label}</td>
+            <td className="border border-slate-400 px-2 py-1 whitespace-pre-wrap">{mostrar(od)}</td>
+            <td className="border border-slate-400 px-2 py-1 whitespace-pre-wrap">{mostrar(oi)}</td>
           </tr>
         ))}
       </tbody>
