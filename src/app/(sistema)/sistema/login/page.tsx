@@ -2,6 +2,12 @@ import { CLINICA } from "@/sistema/lib/clinic";
 import { btn, input } from "@/sistema/components/ui";
 import { iniciarSesion } from "@/sistema/lib/sesion";
 
+const MENSAJES: Record<string, string> = {
+  credenciales: "Correo o contraseña incorrectos.",
+  sin_confirmar: "Esta cuenta aún no está confirmada. Confirma el correo en Supabase (Authentication → Users).",
+  servicio: "No se pudo iniciar sesión por un problema de conexión o configuración. Intenta de nuevo y, si sigue, revisa las variables de Supabase.",
+};
+
 export default async function Login({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const { error } = await searchParams;
   return (
@@ -12,7 +18,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
           <p className="text-sm text-slate-500">{CLINICA.doctora}</p>
         </div>
         {error && (
-          <p className="rounded-md bg-rose-50 px-3 py-2 text-sm text-rose-700">Correo o contraseña incorrectos.</p>
+          <p className="rounded-md bg-rose-50 px-3 py-2 text-sm text-rose-700">{MENSAJES[error] ?? MENSAJES.credenciales}</p>
         )}
         <label className="block">
           <span className="mb-1 block text-xs font-medium text-slate-600">Correo</span>

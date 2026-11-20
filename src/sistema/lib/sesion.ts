@@ -9,7 +9,16 @@ export async function iniciarSesion(formData: FormData) {
     email: String(formData.get("email") ?? "").trim(),
     password: String(formData.get("password") ?? ""),
   });
-  if (error) redirect("/sistema/login?error=1");
+  if (error) {
+    // Distingue la causa para no culpar siempre a la contraseña.
+    const motivo =
+      error.code === "email_not_confirmed"
+        ? "sin_confirmar"
+        : error.code === "invalid_credentials"
+          ? "credenciales"
+          : "servicio";
+    redirect(`/sistema/login?error=${motivo}`);
+  }
   redirect("/sistema");
 }
 
